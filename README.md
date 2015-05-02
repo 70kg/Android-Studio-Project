@@ -6,3 +6,6 @@
 2.学习使用Bezier曲线，制作仿qq气泡拖拽消失效果
 -------
 ![](https://github.com/70kg/Android-Studio-Project/blob/master/app/Screenshots/b.gif)  
+
+3.异步加载网络图片，使用一级缓存
+-------
