@@ -22,4 +22,12 @@
         android:layout_below="@+id/AsyncTaskActivity"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ImageLoaderActivity"
+        android:id="@+id/ImageLoaderActivity"
+        android:layout_below="@+id/BezierActivity"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
