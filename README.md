@@ -7,5 +7,5 @@
 -------
 ![](https://github.com/70kg/Android-Studio-Project/blob/master/app/Screenshots/b.gif)  
 
-3.异步加载网络图片，使用一级缓存
+3.异步加载网络图片，使用二级缓存
 -------
