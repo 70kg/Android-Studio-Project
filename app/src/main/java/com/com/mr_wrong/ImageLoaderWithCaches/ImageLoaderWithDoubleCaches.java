@@ -209,19 +209,19 @@ public class ImageLoaderWithDoubleCaches {
             String key = toMD5String(url);
             try {
                 snapshot = mDiskCaches.get(key);
-                if (snapshot == null) {
+                if (snapshot == null) {//硬盘中没有，从网络下载
                     DiskLruCache.Editor editor = mDiskCaches.edit(key);
                     if (editor != null) {
                         OutputStream outputStream = editor.newOutputStream(0);
                         if (getBitmapUrlToStream(url, outputStream)) {
-                            editor.commit();
+                            editor.commit();//写入硬盘
                         } else {
                             editor.abort();
                         }
                     }
                     snapshot = mDiskCaches.get(key);
                 }
-                if (snapshot != null) {
+                if (snapshot != null) {//硬盘中有
                     fileInputStream = (FileInputStream) snapshot.getInputStream(0);
                     fileDescriptor = fileInputStream.getFD();
                 }
@@ -229,7 +229,7 @@ public class ImageLoaderWithDoubleCaches {
                 if (fileDescriptor != null) {
                     bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor);
                 }
-                if (bitmap != null) {
+                if (bitmap != null) {//读取硬盘中数据，加载到内存
                     addBitmapToMemoryCaches(params[0], bitmap);
                 }
                 return bitmap;
