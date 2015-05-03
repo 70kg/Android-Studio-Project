@@ -16,6 +16,7 @@ public class ImageLoaderActivity extends Activity {
     private ListView mListview;
     private List<String> mData;
     private MyAdapterUseCaches mAdapter;
+    private MyAdapterUseDoubleCaches mAdapter1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class ImageLoaderActivity extends Activity {
         mListview = (ListView) findViewById(R.id.listview);
         mData = Arrays.asList(Images.IMAGE_URLS);
         mAdapter = new MyAdapterUseCaches(this,mData,mListview);
-        mListview.setAdapter(mAdapter);
+        mAdapter1 = new MyAdapterUseDoubleCaches(this,mData,mListview);
+        mListview.setAdapter(mAdapter1);
     }
 }
