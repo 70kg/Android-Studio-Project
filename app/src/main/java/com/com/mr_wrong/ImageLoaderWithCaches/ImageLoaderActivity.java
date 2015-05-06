@@ -25,6 +25,6 @@ public class ImageLoaderActivity extends Activity {
         mData = Arrays.asList(Images.IMAGE_URLS);
         mAdapter = new MyAdapterUseCaches(this,mData,mListview);
         mAdapter1 = new MyAdapterUseDoubleCaches(this,mData,mListview);
-        mListview.setAdapter(mAdapter1);
+        mListview.setAdapter(mAdapter);
     }
 }

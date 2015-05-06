@@ -13,7 +13,6 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
@@ -52,7 +51,7 @@ public class ImageLoaderWithCaches {
         return mMemoryCaches.get(url);
     }
 
-    public void addBitmapToMemoryCaches(String url,Bitmap bitmap) {
+    public void addBitmapToMemoryCaches(String url, Bitmap bitmap) {
         if (getBitmapFromMemoryCaches(url) == null) {
             mMemoryCaches.put(url, bitmap);
         }
@@ -60,6 +59,7 @@ public class ImageLoaderWithCaches {
 
     /**
      * 显示一个屏幕的图片
+     *
      * @param start
      * @param end
      */
@@ -80,6 +80,7 @@ public class ImageLoaderWithCaches {
 
     /**
      * 下载图片
+     *
      * @param urlString
      * @return
      */
