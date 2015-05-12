@@ -20,6 +20,8 @@
         <activity android:name="com.com.mr_wrong.Bezier.BezierActivity"></activity>
         <activity android:name="com.com.mr_wrong.AsyncTask.AsyncTaskActivity"></activity>
         <activity android:name="com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity"></activity>
+        <activity android:name="com.com.mr_wrong.RecyclerView.RecyclerViewActivity"></activity>
+        <activity android:name="com.com.mr_wrong.RecyclerView.StaggeredGridLayoutActivity"></activity>
     </application>
 
 </manifest>

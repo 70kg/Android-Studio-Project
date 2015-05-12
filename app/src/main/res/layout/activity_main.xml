@@ -30,4 +30,12 @@
         android:id="@+id/ImageLoaderActivity"
         android:layout_below="@+id/BezierActivity"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RecyclerViewActivity"
+        android:id="@+id/RecyclerViewActivity"
+        android:layout_below="@+id/ImageLoaderActivity"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
