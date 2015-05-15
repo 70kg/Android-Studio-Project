@@ -15,7 +15,7 @@
  *   limitations under the License.
  *  *****************************************************************************
  */
-package com.com.mr_wrong.RecyclerView.Itemanimator;
+package com.com.mr_wrong.RecyclerViewItemAnimator.Itemanimator;
 
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
@@ -24,24 +24,38 @@ import android.view.View;
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class SlideInOutTopItemAnimator extends BaseItemAnimator {
+public class SlideScaleInOutRightItemAnimator extends BaseItemAnimator {
 
-    float mOriginalY;
+    private float DEFAULT_SCALE_INITIAL = 0.6f;
 
-    public SlideInOutTopItemAnimator(RecyclerView recyclerView) {
+    private float mInitialScaleX = DEFAULT_SCALE_INITIAL;
+    private float mInitialScaleY = DEFAULT_SCALE_INITIAL;
+
+    private float mEndScaleX = DEFAULT_SCALE_INITIAL;
+    private float mEndScaleY = DEFAULT_SCALE_INITIAL;
+
+    private float mOriginalScaleX;
+    private float mOriginalScaleY;
+
+    public SlideScaleInOutRightItemAnimator(RecyclerView recyclerView) {
         super(recyclerView);
+
+        setAddDuration(750);
+        setRemoveDuration(750);
     }
 
     protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
         final View view = holder.itemView;
-        retrieveItemHeight(holder);
 
         ViewCompat.animate(view).cancel();
         ViewCompat.animate(view).setDuration(getRemoveDuration()).
-                translationY(-mOriginalY).setListener(new VpaListenerAdapter() {
+                scaleX(mEndScaleX).scaleY(mEndScaleY).
+                translationX(+mRecyclerView.getWidth()).setListener(new VpaListenerAdapter() {
             @Override
             public void onAnimationEnd(View view) {
-                ViewCompat.setTranslationY(view, -mOriginalY);
+                ViewCompat.setScaleX(view, mEndScaleX);
+                ViewCompat.setScaleY(view, mEndScaleY);
+                ViewCompat.setTranslationX(view, +mRecyclerView.getWidth());
                 dispatchRemoveFinished(holder);
                 mRemoveAnimations.remove(holder);
                 dispatchFinishedWhenDone();
@@ -52,20 +66,27 @@ public class SlideInOutTopItemAnimator extends BaseItemAnimator {
 
     @Override
     protected void prepareAnimateAdd(RecyclerView.ViewHolder holder) {
-        retrieveItemHeight(holder);
-        ViewCompat.setTranslationY(holder.itemView, -mOriginalY);
+        retrieveOriginalScale(holder);
+        ViewCompat.setScaleX(holder.itemView, mInitialScaleX);
+        ViewCompat.setScaleY(holder.itemView, mInitialScaleY);
+
+        ViewCompat.setTranslationX(holder.itemView, +mRecyclerView.getWidth());
     }
+
+
 
     protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
         final View view = holder.itemView;
 
         ViewCompat.animate(view).cancel();
-        ViewCompat.animate(view).translationY(0)
+        ViewCompat.animate(view).scaleX(mOriginalScaleX).scaleY(mOriginalScaleY).translationX(0)
                 .setDuration(getAddDuration()).
                 setListener(new VpaListenerAdapter() {
                     @Override
                     public void onAnimationCancel(View view) {
-                        ViewCompat.setTranslationY(view, 0);
+                        ViewCompat.setTranslationX(view, 0);
+                        ViewCompat.setScaleX(view, mOriginalScaleX);
+                        ViewCompat.setScaleY(view, mOriginalScaleY);
                     }
 
                     @Override
@@ -78,11 +99,31 @@ public class SlideInOutTopItemAnimator extends BaseItemAnimator {
         mAddAnimations.add(holder);
     }
 
-
-    private void retrieveItemHeight(final RecyclerView.ViewHolder holder){
-       mOriginalY = mRecyclerView.getLayoutManager().getDecoratedBottom(holder.itemView);
+    public void setInitialScale(float scaleXY){
+       setInitialScale(scaleXY, scaleXY);
     }
 
+    public void setInitialScale(float scaleX, float scaleY){
+        mInitialScaleX = scaleX;
+        mInitialScaleY = scaleY;
+
+        mEndScaleX = scaleX;
+        mEndScaleY = scaleY;
+    }
+
+    public void setEndScale(float scaleXY){
+        setEndScale(scaleXY, scaleXY);
+    }
+
+    public void setEndScale(float scaleX, float scaleY){
+        mEndScaleX = scaleX;
+        mEndScaleY = scaleY;
+    }
+
+    private void retrieveOriginalScale(RecyclerView.ViewHolder holder) {
+        mOriginalScaleX = holder.itemView.getScaleX();
+        mOriginalScaleY = holder.itemView.getScaleY();
+    }
 
     @Override
     public boolean animateChange(RecyclerView.ViewHolder oldHolder, RecyclerView.ViewHolder newHolder, int fromLeft, int fromTop, int toLeft, int toTop) {

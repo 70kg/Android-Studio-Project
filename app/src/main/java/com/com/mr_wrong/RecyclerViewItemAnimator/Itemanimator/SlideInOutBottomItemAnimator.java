@@ -15,31 +15,33 @@
  *   limitations under the License.
  *  *****************************************************************************
  */
-
-package com.com.mr_wrong.RecyclerView.Itemanimator;
+package com.com.mr_wrong.RecyclerViewItemAnimator.Itemanimator;
 
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
- *
- * @see android.support.v7.widget.RecyclerView#setItemAnimator(android.support.v7.widget.RecyclerView.ItemAnimator)
+ * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class SlideInOutRightItemAnimator extends BaseItemAnimator {
+public class SlideInOutBottomItemAnimator extends BaseItemAnimator {
 
-    public SlideInOutRightItemAnimator(RecyclerView recyclerView){
+    private float mOriginalY;
+    private float mDeltaY;
+
+    public SlideInOutBottomItemAnimator(RecyclerView recyclerView) {
         super(recyclerView);
     }
 
     protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
         final View view = holder.itemView;
+
         ViewCompat.animate(view).cancel();
         ViewCompat.animate(view).setDuration(getRemoveDuration()).
-                translationX(+mRecyclerView.getWidth()).setListener(new VpaListenerAdapter() {
+                translationY(+mDeltaY).setListener(new VpaListenerAdapter() {
             @Override
             public void onAnimationEnd(View view) {
-                ViewCompat.setTranslationX(view, +mRecyclerView.getWidth());
+                ViewCompat.setTranslationY(view, +mDeltaY);
                 dispatchRemoveFinished(holder);
                 mRemoveAnimations.remove(holder);
                 dispatchFinishedWhenDone();
@@ -50,19 +52,20 @@ public class SlideInOutRightItemAnimator extends BaseItemAnimator {
 
     @Override
     protected void prepareAnimateAdd(RecyclerView.ViewHolder holder) {
-        ViewCompat.setTranslationX(holder.itemView, +mRecyclerView.getWidth());
+        retrieveItemPosition(holder);
+        ViewCompat.setTranslationY(holder.itemView, +mDeltaY);
     }
 
     protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
         final View view = holder.itemView;
 
         ViewCompat.animate(view).cancel();
-        ViewCompat.animate(view).translationX(0)
+        ViewCompat.animate(view).translationY(0)
                 .setDuration(getAddDuration()).
                 setListener(new VpaListenerAdapter() {
                     @Override
                     public void onAnimationCancel(View view) {
-                        ViewCompat.setTranslationX(view, 0);
+                        ViewCompat.setTranslationY(view, 0);
                     }
 
                     @Override
@@ -75,9 +78,15 @@ public class SlideInOutRightItemAnimator extends BaseItemAnimator {
         mAddAnimations.add(holder);
     }
 
+
+    private void retrieveItemPosition(final RecyclerView.ViewHolder holder){
+       mOriginalY = mRecyclerView.getLayoutManager().getDecoratedTop(holder.itemView);
+       mDeltaY = mRecyclerView.getHeight() - mOriginalY;
+    }
+
+
     @Override
     public boolean animateChange(RecyclerView.ViewHolder oldHolder, RecyclerView.ViewHolder newHolder, int fromLeft, int fromTop, int toLeft, int toTop) {
         return false;
     }
 }
-

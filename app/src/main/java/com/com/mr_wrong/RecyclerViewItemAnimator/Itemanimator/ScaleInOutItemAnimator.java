@@ -15,7 +15,7 @@
  *   limitations under the License.
  *  *****************************************************************************
  */
-package com.com.mr_wrong.RecyclerView.Itemanimator;
+package com.com.mr_wrong.RecyclerViewItemAnimator.Itemanimator;
 
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
@@ -24,7 +24,7 @@ import android.view.View;
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class SlideScaleInOutRightItemAnimator extends BaseItemAnimator {
+public class ScaleInOutItemAnimator extends BaseItemAnimator {
 
     private float DEFAULT_SCALE_INITIAL = 0.6f;
 
@@ -37,11 +37,8 @@ public class SlideScaleInOutRightItemAnimator extends BaseItemAnimator {
     private float mOriginalScaleX;
     private float mOriginalScaleY;
 
-    public SlideScaleInOutRightItemAnimator(RecyclerView recyclerView) {
+    public ScaleInOutItemAnimator(RecyclerView recyclerView) {
         super(recyclerView);
-
-        setAddDuration(750);
-        setRemoveDuration(750);
     }
 
     protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
@@ -49,13 +46,11 @@ public class SlideScaleInOutRightItemAnimator extends BaseItemAnimator {
 
         ViewCompat.animate(view).cancel();
         ViewCompat.animate(view).setDuration(getRemoveDuration()).
-                scaleX(mEndScaleX).scaleY(mEndScaleY).
-                translationX(+mRecyclerView.getWidth()).setListener(new VpaListenerAdapter() {
+                scaleX(mEndScaleX).scaleY(mEndScaleY).setListener(new VpaListenerAdapter() {
             @Override
             public void onAnimationEnd(View view) {
                 ViewCompat.setScaleX(view, mEndScaleX);
                 ViewCompat.setScaleY(view, mEndScaleY);
-                ViewCompat.setTranslationX(view, +mRecyclerView.getWidth());
                 dispatchRemoveFinished(holder);
                 mRemoveAnimations.remove(holder);
                 dispatchFinishedWhenDone();
@@ -69,22 +64,18 @@ public class SlideScaleInOutRightItemAnimator extends BaseItemAnimator {
         retrieveOriginalScale(holder);
         ViewCompat.setScaleX(holder.itemView, mInitialScaleX);
         ViewCompat.setScaleY(holder.itemView, mInitialScaleY);
-
-        ViewCompat.setTranslationX(holder.itemView, +mRecyclerView.getWidth());
     }
-
 
 
     protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
         final View view = holder.itemView;
 
         ViewCompat.animate(view).cancel();
-        ViewCompat.animate(view).scaleX(mOriginalScaleX).scaleY(mOriginalScaleY).translationX(0)
+        ViewCompat.animate(view).scaleX(mOriginalScaleX).scaleY(mOriginalScaleY)
                 .setDuration(getAddDuration()).
                 setListener(new VpaListenerAdapter() {
                     @Override
                     public void onAnimationCancel(View view) {
-                        ViewCompat.setTranslationX(view, 0);
                         ViewCompat.setScaleX(view, mOriginalScaleX);
                         ViewCompat.setScaleY(view, mOriginalScaleY);
                     }
@@ -99,11 +90,11 @@ public class SlideScaleInOutRightItemAnimator extends BaseItemAnimator {
         mAddAnimations.add(holder);
     }
 
-    public void setInitialScale(float scaleXY){
-       setInitialScale(scaleXY, scaleXY);
+    public void setInitialScale(float scaleXY) {
+        setInitialScale(scaleXY, scaleXY);
     }
 
-    public void setInitialScale(float scaleX, float scaleY){
+    public void setInitialScale(float scaleX, float scaleY) {
         mInitialScaleX = scaleX;
         mInitialScaleY = scaleY;
 
@@ -111,11 +102,11 @@ public class SlideScaleInOutRightItemAnimator extends BaseItemAnimator {
         mEndScaleY = scaleY;
     }
 
-    public void setEndScale(float scaleXY){
+    public void setEndScale(float scaleXY) {
         setEndScale(scaleXY, scaleXY);
     }
 
-    public void setEndScale(float scaleX, float scaleY){
+    public void setEndScale(float scaleX, float scaleY) {
         mEndScaleX = scaleX;
         mEndScaleY = scaleY;
     }

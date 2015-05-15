@@ -15,7 +15,7 @@
  *   limitations under the License.
  *  *****************************************************************************
  */
-package com.com.mr_wrong.RecyclerView.Itemanimator;
+package com.com.mr_wrong.RecyclerViewItemAnimator.Itemanimator;
 
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
@@ -24,24 +24,24 @@ import android.view.View;
 /**
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class SlideInOutBottomItemAnimator extends BaseItemAnimator {
+public class SlideInOutTopItemAnimator extends BaseItemAnimator {
 
-    private float mOriginalY;
-    private float mDeltaY;
+    float mOriginalY;
 
-    public SlideInOutBottomItemAnimator(RecyclerView recyclerView) {
+    public SlideInOutTopItemAnimator(RecyclerView recyclerView) {
         super(recyclerView);
     }
 
     protected void animateRemoveImpl(final RecyclerView.ViewHolder holder) {
         final View view = holder.itemView;
+        retrieveItemHeight(holder);
 
         ViewCompat.animate(view).cancel();
         ViewCompat.animate(view).setDuration(getRemoveDuration()).
-                translationY(+mDeltaY).setListener(new VpaListenerAdapter() {
+                translationY(-mOriginalY).setListener(new VpaListenerAdapter() {
             @Override
             public void onAnimationEnd(View view) {
-                ViewCompat.setTranslationY(view, +mDeltaY);
+                ViewCompat.setTranslationY(view, -mOriginalY);
                 dispatchRemoveFinished(holder);
                 mRemoveAnimations.remove(holder);
                 dispatchFinishedWhenDone();
@@ -52,8 +52,8 @@ public class SlideInOutBottomItemAnimator extends BaseItemAnimator {
 
     @Override
     protected void prepareAnimateAdd(RecyclerView.ViewHolder holder) {
-        retrieveItemPosition(holder);
-        ViewCompat.setTranslationY(holder.itemView, +mDeltaY);
+        retrieveItemHeight(holder);
+        ViewCompat.setTranslationY(holder.itemView, -mOriginalY);
     }
 
     protected void animateAddImpl(final RecyclerView.ViewHolder holder) {
@@ -79,9 +79,8 @@ public class SlideInOutBottomItemAnimator extends BaseItemAnimator {
     }
 
 
-    private void retrieveItemPosition(final RecyclerView.ViewHolder holder){
-       mOriginalY = mRecyclerView.getLayoutManager().getDecoratedTop(holder.itemView);
-       mDeltaY = mRecyclerView.getHeight() - mOriginalY;
+    private void retrieveItemHeight(final RecyclerView.ViewHolder holder){
+       mOriginalY = mRecyclerView.getLayoutManager().getDecoratedBottom(holder.itemView);
     }
 
 

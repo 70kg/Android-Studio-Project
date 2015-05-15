@@ -15,7 +15,7 @@
  *   limitations under the License.
  *  *****************************************************************************
  */
-package com.com.mr_wrong.RecyclerView.Itemanimator;
+package com.com.mr_wrong.RecyclerViewItemAnimator.Itemanimator;
 
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
@@ -35,7 +35,8 @@ public class SlideInOutLeftItemAnimator extends BaseItemAnimator {
         final View view = holder.itemView;
         ViewCompat.animate(view).cancel();
         ViewCompat.animate(view).setDuration(getRemoveDuration()).
-                translationX(-mRecyclerView.getWidth()).setListener(new VpaListenerAdapter() {
+                translationX(-mRecyclerView.getWidth()).
+                setListener(new VpaListenerAdapter() {
             @Override
             public void onAnimationEnd(View view) {
                 ViewCompat.setTranslationX(view, -mRecyclerView.getWidth());
