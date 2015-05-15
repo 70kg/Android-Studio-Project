@@ -17,3 +17,6 @@
 -------
 6.学习使用Scroller控制View
 -------
+7.学习RecyclerView.ItemAnimator的使用
+-------
+![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/RecyclerViewAnimator.gif)
