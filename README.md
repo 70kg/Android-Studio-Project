@@ -15,3 +15,5 @@
 
 5.学习使用RecyclerView
 -------
+6.学习使用Scroller控制View
+-------
