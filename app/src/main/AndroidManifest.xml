@@ -22,6 +22,7 @@
         <activity android:name="com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity"></activity>
         <activity android:name="com.com.mr_wrong.RecyclerView.RecyclerViewActivity"></activity>
         <activity android:name="com.com.mr_wrong.RecyclerView.StaggeredGridLayoutActivity"></activity>
+        <activity android:name="com.com.mr_wrong.Scroller.ScrollActivity"></activity>
     </application>
 
 </manifest>

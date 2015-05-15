@@ -10,6 +10,7 @@ import com.com.mr_wrong.AsyncTask.AsyncTaskActivity;
 import com.com.mr_wrong.Bezier.BezierActivity;
 import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
 import com.com.mr_wrong.RecyclerView.RecyclerViewActivity;
+import com.com.mr_wrong.Scroller.ScrollActivity;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -18,6 +19,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button bt_AsyncTaskActivity;
     private Button bt_ImageLoaderActivity;
     private Button bt_RecyclerViewActivity;
+    private Button bt_ScrollActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +30,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_AsyncTaskActivity = (Button) findViewById(R.id.AsyncTaskActivity);
         bt_ImageLoaderActivity = (Button) findViewById(R.id.ImageLoaderActivity);
         bt_RecyclerViewActivity = (Button) findViewById(R.id.RecyclerViewActivity);
+        bt_ScrollActivity = (Button) findViewById(R.id.ScrollActivity);
 
         bt_AsyncTaskActivity.setOnClickListener(this);
         bt_BezierActivity.setOnClickListener(this);
         bt_ImageLoaderActivity.setOnClickListener(this);
         bt_RecyclerViewActivity.setOnClickListener(this);
+        bt_ScrollActivity.setOnClickListener(this);
     }
 
     @Override
@@ -55,6 +59,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 intent = new Intent(this, RecyclerViewActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.ScrollActivity:
+                intent = new Intent(this, ScrollActivity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 }
