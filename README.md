@@ -20,3 +20,7 @@
 7.学习RecyclerView.ItemAnimator的使用
 -------
 ![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/RecyclerViewAnimator.gif)
+8.使用Volley请求和Gson解析网络数据
+-------
+![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/weather.jpg)
+
