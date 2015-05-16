@@ -12,6 +12,7 @@ import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
 import com.com.mr_wrong.RecyclerView.RecyclerViewActivity;
 import com.com.mr_wrong.RecyclerViewItemAnimator.ItemAnimatorActivity;
 import com.com.mr_wrong.Scroller.ScrollActivity;
+import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -22,6 +23,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button bt_RecyclerViewActivity;
     private Button bt_ScrollActivity;
     private Button bt_ItemAnimatorActivity;
+    private Button bt_VolleyActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_RecyclerViewActivity = (Button) findViewById(R.id.RecyclerViewActivity);
         bt_ScrollActivity = (Button) findViewById(R.id.ScrollActivity);
         bt_ItemAnimatorActivity = (Button) findViewById(R.id.ItemAnimatorActivity);
+        bt_VolleyActivity = (Button) findViewById(R.id.VolleyActivity);
 
         bt_AsyncTaskActivity.setOnClickListener(this);
         bt_BezierActivity.setOnClickListener(this);
@@ -41,6 +44,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_RecyclerViewActivity.setOnClickListener(this);
         bt_ScrollActivity.setOnClickListener(this);
         bt_ItemAnimatorActivity.setOnClickListener(this);
+        bt_VolleyActivity.setOnClickListener(this);
     }
 
     @Override
@@ -69,6 +73,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.ItemAnimatorActivity:
                 intent = new Intent(this, ItemAnimatorActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.VolleyActivity:
+                intent = new Intent(this, VolleyActivity.class);
                 startActivity(intent);
                 break;
 

@@ -24,6 +24,7 @@
         <activity android:name="com.com.mr_wrong.RecyclerView.StaggeredGridLayoutActivity"></activity>
         <activity android:name="com.com.mr_wrong.Scroller.ScrollActivity"></activity>
         <activity android:name="com.com.mr_wrong.RecyclerViewItemAnimator.ItemAnimatorActivity"></activity>
+        <activity android:name="com.com.mr_wrong.VolleyAndGson.VolleyActivity"></activity>
     </application>
 
 </manifest>
