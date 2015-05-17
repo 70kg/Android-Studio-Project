@@ -44,13 +44,14 @@ public class VolleyActivity extends Activity {
 
     private void initData(String url) {
         RequestQueue mQueue = Volley.newRequestQueue(this);
+
         GsonRequest<Weather> gsonRequest = new GsonRequest<Weather>(url
                 , Weather.class,
                 new Response.Listener<Weather>() {
                     @Override
                     public void onResponse(Weather weather) {
                         WeatherInfo weatherInfo = weather.getWeatherinfo();
-                        mTextView.setText("城市:" + weatherInfo.getCity() + "   温度:" + weatherInfo.getTemp1() +
+                        mTextView.setText("城市:" + weatherInfo.getCity() +"  天气:"+weatherInfo.getWeather1()+ "   温度:" + weatherInfo.getTemp1() +
                                 "  发布时间:" + weatherInfo.getDate_y() + " 天气状况：" + weatherInfo.getIndex() +
                                 "  穿衣意见：" + weatherInfo.getIndex_d());
 

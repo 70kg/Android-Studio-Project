@@ -5,14 +5,19 @@ package com.com.mr_wrong.VolleyAndGson;
  */
 public class WeatherInfo {
     private String city;
-
     private String temp1;
-
     private String date_y;
-
-
     private String index;
     private String index_d;
+    private String weather1;
+
+    public String getWeather1() {
+        return weather1;
+    }
+
+    public void setWeather1(String weather1) {
+        this.weather1 = weather1;
+    }
 
     public String getCity() {
         return city;
