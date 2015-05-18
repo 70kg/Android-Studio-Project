@@ -22,6 +22,7 @@ public class NumberProgressBarActivity extends Activity implements OnProgressBar
         setContentView(R.layout.numberprogressbar_layout);
         mProgressBar = (NumberProgressBar) findViewById(R.id.progressbar);
         mProgressBar.setOnProgressBarListener(this);
+        //mProgressBar.setProgress(96);
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
