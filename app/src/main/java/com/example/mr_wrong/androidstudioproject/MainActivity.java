@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.com.mr_wrong.AsyncTask.AsyncTaskActivity;
 import com.com.mr_wrong.Bezier.BezierActivity;
 import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
+import com.com.mr_wrong.NumberProgressBar.NumberProgressBarActivity;
 import com.com.mr_wrong.RecyclerView.RecyclerViewActivity;
 import com.com.mr_wrong.RecyclerViewItemAnimator.ItemAnimatorActivity;
 import com.com.mr_wrong.Scroller.ScrollActivity;
@@ -24,6 +25,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button bt_ScrollActivity;
     private Button bt_ItemAnimatorActivity;
     private Button bt_VolleyActivity;
+    private Button bt_NumberProgressBarActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_ScrollActivity = (Button) findViewById(R.id.ScrollActivity);
         bt_ItemAnimatorActivity = (Button) findViewById(R.id.ItemAnimatorActivity);
         bt_VolleyActivity = (Button) findViewById(R.id.VolleyActivity);
+        bt_NumberProgressBarActivity = (Button) findViewById(R.id.NumberProgressBarActivity);
 
         bt_AsyncTaskActivity.setOnClickListener(this);
         bt_BezierActivity.setOnClickListener(this);
@@ -45,6 +48,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_ScrollActivity.setOnClickListener(this);
         bt_ItemAnimatorActivity.setOnClickListener(this);
         bt_VolleyActivity.setOnClickListener(this);
+        bt_NumberProgressBarActivity.setOnClickListener(this);
     }
 
     @Override
@@ -77,6 +81,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.VolleyActivity:
                 intent = new Intent(this, VolleyActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.NumberProgressBarActivity:
+                intent = new Intent(this, NumberProgressBarActivity.class);
                 startActivity(intent);
                 break;
 

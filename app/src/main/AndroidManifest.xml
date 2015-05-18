@@ -20,11 +20,14 @@
         <activity android:name="com.com.mr_wrong.Bezier.BezierActivity"></activity>
         <activity android:name="com.com.mr_wrong.AsyncTask.AsyncTaskActivity"></activity>
         <activity android:name="com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity"></activity>
-        <activity android:name="com.com.mr_wrong.RecyclerView.RecyclerViewActivity" android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name="com.com.mr_wrong.RecyclerView.RecyclerViewActivity"
+            android:theme="@style/AppTheme"></activity>
         <activity android:name="com.com.mr_wrong.RecyclerView.StaggeredGridLayoutActivity"></activity>
         <activity android:name="com.com.mr_wrong.Scroller.ScrollActivity"></activity>
         <activity android:name="com.com.mr_wrong.RecyclerViewItemAnimator.ItemAnimatorActivity"></activity>
         <activity android:name="com.com.mr_wrong.VolleyAndGson.VolleyActivity"></activity>
+        <activity android:name="com.com.mr_wrong.NumberProgressBar.NumberProgressBarActivity"></activity>
     </application>
 
 </manifest>
