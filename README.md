@@ -23,4 +23,8 @@
 8.使用Volley请求和Gson解析网络数据
 -------
 ![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/weather.jpg)
+9.自定义进度条，NumProgressBar
+-------
+![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/numProgressbar.gif)
+
 
