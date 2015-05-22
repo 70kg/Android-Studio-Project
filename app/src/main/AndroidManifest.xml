@@ -28,6 +28,9 @@
         <activity android:name="com.com.mr_wrong.RecyclerViewItemAnimator.ItemAnimatorActivity"></activity>
         <activity android:name="com.com.mr_wrong.VolleyAndGson.VolleyActivity"></activity>
         <activity android:name="com.com.mr_wrong.NumberProgressBar.NumberProgressBarActivity"></activity>
+        <activity android:name="com.com.mr_wrong.ViewDraghelper.MainActivity"></activity>
+        <activity android:name="com.com.mr_wrong.ViewDraghelper.DragActivity"></activity>
+        <activity android:name="com.com.mr_wrong.ViewDraghelper.YoutuboActivity"></activity>
     </application>
 
 </manifest>

@@ -26,6 +26,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button bt_ItemAnimatorActivity;
     private Button bt_VolleyActivity;
     private Button bt_NumberProgressBarActivity;
+    private Button bt_DragViewHelperActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_ItemAnimatorActivity = (Button) findViewById(R.id.ItemAnimatorActivity);
         bt_VolleyActivity = (Button) findViewById(R.id.VolleyActivity);
         bt_NumberProgressBarActivity = (Button) findViewById(R.id.NumberProgressBarActivity);
+        bt_DragViewHelperActivity = (Button) findViewById(R.id.DragViewHelperActivity);
 
         bt_AsyncTaskActivity.setOnClickListener(this);
         bt_BezierActivity.setOnClickListener(this);
@@ -49,6 +51,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_ItemAnimatorActivity.setOnClickListener(this);
         bt_VolleyActivity.setOnClickListener(this);
         bt_NumberProgressBarActivity.setOnClickListener(this);
+        bt_DragViewHelperActivity.setOnClickListener(this);
     }
 
     @Override
@@ -85,6 +88,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.NumberProgressBarActivity:
                 intent = new Intent(this, NumberProgressBarActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.DragViewHelperActivity:
+                intent = new Intent(this, com.com.mr_wrong.ViewDraghelper.MainActivity.class);
                 startActivity(intent);
                 break;
 

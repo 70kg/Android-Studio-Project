@@ -38,6 +38,7 @@
         android:id="@+id/RecyclerViewActivity"
         android:layout_below="@+id/ImageLoaderActivity"
         android:layout_alignParentStart="true" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,5 +69,13 @@
         android:text="NumberProgressBarActivity"
         android:id="@+id/NumberProgressBarActivity"
         android:layout_below="@+id/VolleyActivity"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DragViewHelperActivity"
+        android:id="@+id/DragViewHelperActivity"
+        android:layout_below="@+id/NumberProgressBarActivity"
         android:layout_alignParentStart="true" />
 </RelativeLayout>
