@@ -26,5 +26,10 @@
 9.自定义进度条，NumProgressBar
 -------
 ![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/numProgressbar.gif)
-
+10.使用ViewDragHelper实现View拖拽
+-------
+![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/youtube.gif)
+11.常见的筛选按钮
+---
+![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/popupbutton.gif)
 
