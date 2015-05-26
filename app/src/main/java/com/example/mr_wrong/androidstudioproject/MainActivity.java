@@ -10,6 +10,7 @@ import com.com.mr_wrong.AsyncTask.AsyncTaskActivity;
 import com.com.mr_wrong.Bezier.BezierActivity;
 import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
 import com.com.mr_wrong.NumberProgressBar.NumberProgressBarActivity;
+import com.com.mr_wrong.PopButton.PopButtonActivity;
 import com.com.mr_wrong.RecyclerView.RecyclerViewActivity;
 import com.com.mr_wrong.RecyclerViewItemAnimator.ItemAnimatorActivity;
 import com.com.mr_wrong.Scroller.ScrollActivity;
@@ -27,6 +28,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button bt_VolleyActivity;
     private Button bt_NumberProgressBarActivity;
     private Button bt_DragViewHelperActivity;
+    private Button bt_PopButtonActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_VolleyActivity = (Button) findViewById(R.id.VolleyActivity);
         bt_NumberProgressBarActivity = (Button) findViewById(R.id.NumberProgressBarActivity);
         bt_DragViewHelperActivity = (Button) findViewById(R.id.DragViewHelperActivity);
+        bt_PopButtonActivity = (Button) findViewById(R.id.PopButtonActivity);
 
         bt_AsyncTaskActivity.setOnClickListener(this);
         bt_BezierActivity.setOnClickListener(this);
@@ -52,6 +55,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_VolleyActivity.setOnClickListener(this);
         bt_NumberProgressBarActivity.setOnClickListener(this);
         bt_DragViewHelperActivity.setOnClickListener(this);
+        bt_PopButtonActivity.setOnClickListener(this);
     }
 
     @Override
@@ -92,6 +96,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.DragViewHelperActivity:
                 intent = new Intent(this, com.com.mr_wrong.ViewDraghelper.MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.PopButtonActivity:
+                intent = new Intent(this, PopButtonActivity.class);
                 startActivity(intent);
                 break;
 

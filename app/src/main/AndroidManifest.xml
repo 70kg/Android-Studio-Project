@@ -31,6 +31,7 @@
         <activity android:name="com.com.mr_wrong.ViewDraghelper.MainActivity"></activity>
         <activity android:name="com.com.mr_wrong.ViewDraghelper.DragActivity"></activity>
         <activity android:name="com.com.mr_wrong.ViewDraghelper.YoutuboActivity"></activity>
+        <activity android:name="com.com.mr_wrong.PopButton.PopButtonActivity"></activity>
     </application>
 
 </manifest>

@@ -2,4 +2,7 @@
 <resources>
     <color name="color_item_press">#ffff0000</color>
     <color name="color_item_normal">#44ff0000</color>
+    <color name="normal">#fff</color>
+    <color name="press">#ff0</color>
+    <color name="focue">#666</color>
 </resources>

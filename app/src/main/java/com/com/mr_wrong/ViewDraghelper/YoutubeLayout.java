@@ -60,7 +60,6 @@ public class YoutubeLayout extends ViewGroup {
         @Override
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
             mTop = top;
-
             mDragOffset = (float) top / mDragRange;//0-1
 
             mHeaderView.setPivotX(mHeaderView.getWidth());
