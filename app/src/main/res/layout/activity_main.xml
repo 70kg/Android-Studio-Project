@@ -86,4 +86,12 @@
         android:id="@+id/PopButtonActivity"
         android:layout_below="@+id/DragViewHelperActivity"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SlideActivity"
+        android:id="@+id/SlideActivity"
+        android:layout_below="@+id/PopButtonActivity"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

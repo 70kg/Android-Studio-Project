@@ -7,6 +7,7 @@
     <ListView
         android:id="@+id/parent_lv"
         android:layout_width="0dp"
+        android:background="#fff"
         android:layout_height="match_parent"
         android:scrollbars="none"
         android:layout_weight="1"></ListView>
@@ -18,6 +19,7 @@
 
     <ListView
         android:id="@+id/child_lv"
+        android:background="#fff"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"></ListView>

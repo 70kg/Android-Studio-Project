@@ -14,6 +14,7 @@ import com.com.mr_wrong.PopButton.PopButtonActivity;
 import com.com.mr_wrong.RecyclerView.RecyclerViewActivity;
 import com.com.mr_wrong.RecyclerViewItemAnimator.ItemAnimatorActivity;
 import com.com.mr_wrong.Scroller.ScrollActivity;
+import com.com.mr_wrong.SlideView.SlideActivity;
 import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
 
 
@@ -29,6 +30,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button bt_NumberProgressBarActivity;
     private Button bt_DragViewHelperActivity;
     private Button bt_PopButtonActivity;
+    private Button bt_SlideActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_NumberProgressBarActivity = (Button) findViewById(R.id.NumberProgressBarActivity);
         bt_DragViewHelperActivity = (Button) findViewById(R.id.DragViewHelperActivity);
         bt_PopButtonActivity = (Button) findViewById(R.id.PopButtonActivity);
+        bt_SlideActivity = (Button) findViewById(R.id.SlideActivity);
 
         bt_AsyncTaskActivity.setOnClickListener(this);
         bt_BezierActivity.setOnClickListener(this);
@@ -56,6 +59,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_NumberProgressBarActivity.setOnClickListener(this);
         bt_DragViewHelperActivity.setOnClickListener(this);
         bt_PopButtonActivity.setOnClickListener(this);
+        bt_SlideActivity.setOnClickListener(this);
     }
 
     @Override
@@ -100,6 +104,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.PopButtonActivity:
                 intent = new Intent(this, PopButtonActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.SlideActivity:
+                intent = new Intent(this, SlideActivity.class);
                 startActivity(intent);
                 break;
 
