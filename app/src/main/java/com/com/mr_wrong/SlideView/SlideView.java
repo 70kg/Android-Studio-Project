@@ -65,7 +65,7 @@ public class SlideView extends LinearLayout {
         int x = (int) event.getX();
         int y = (int) event.getY();
         int scrollX = getScrollX();
-        Utils.Log("scrollX---", scrollX);
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 if (!mScroll.isFinished()) {
@@ -92,11 +92,14 @@ public class SlideView extends LinearLayout {
                 }
                 break;
             case MotionEvent.ACTION_UP:
-                int newscrollx = 0;
-                if (scrollX - mHolderWidth * 0.75 > 0) {
+                int newscrollx;
+                Utils.Log("scrollX---", scrollX);
+                if (scrollX > mHolderWidth * 0.75) {
                     newscrollx = mHolderWidth;
+                } else {
+                    newscrollx = 0;
                 }
-                this.smoothScrollTo(newscrollx, 0);
+                smoothScrollTo(newscrollx, 0);
                 if (mOnSlideListener != null) {
                     mOnSlideListener.onSlide(this, newscrollx == 0 ? OnSlideListener.SLIDE_STATUS_OFF :
                             OnSlideListener.SLIDE_STATUS_ON);

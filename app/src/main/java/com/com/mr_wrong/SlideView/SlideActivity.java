@@ -34,7 +34,7 @@ public class SlideActivity extends Activity implements
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         mslideView.onRequireTouchEvent(event);
-        return super.onTouchEvent(event);
+        return true;
     }
 
     @Override
