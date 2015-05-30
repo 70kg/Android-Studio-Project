@@ -27,7 +27,7 @@ public class ImageLoaderWithCaches {
 
     public ImageLoaderWithCaches(ListView listview) {
         this.mListView = listview;
-        mTasks = new HashSet<>();
+        mTasks = new HashSet<ASyncDownloadImage>();
         int maxMemory = (int) Runtime.getRuntime().maxMemory();
         int cacheSize = maxMemory / 10;
         mMemoryCaches = new LruCache<String, Bitmap>(cacheSize) {

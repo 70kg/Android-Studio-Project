@@ -37,7 +37,7 @@ public class ImageLoaderWithDoubleCaches {
 
     public ImageLoaderWithDoubleCaches(Context context, ListView listView) {
         this.mListview = listView;
-        mTasks = new HashSet<>();
+        mTasks = new HashSet<ASyncDownloadImage>();
         int maxMemory = (int) Runtime.getRuntime().maxMemory();
         int cacheSize = maxMemory / 10;
         mMemoryCaches = new LruCache<String, Bitmap>(cacheSize) {
