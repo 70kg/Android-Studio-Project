@@ -16,4 +16,8 @@
         criss:titlecolor="#ff0000"
         criss:titlesize="30sp"
         criss:titletext="hello andorid ! " />
+
+    <com.com.mr_wrong.CustomView.CustomColorCricle
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

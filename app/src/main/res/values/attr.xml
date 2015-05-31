@@ -48,4 +48,10 @@
             <enum name="center" value="1"></enum>
         </attr>
     </declare-styleable>
+    <declare-styleable name="CustomColorCricle">
+        <attr name="fristcolor" format="color"></attr>
+        <attr name="secondcolor" format="color"></attr>
+        <attr name="criclewidth" format="dimension"></attr>
+        <attr name="speed" format="integer"></attr>
+    </declare-styleable>
 </resources>
