@@ -1,4 +1,4 @@
-package com.com.mr_wrong.test;
+package com.com.mr_wrong.CustomView;
 
 import android.app.Activity;
 import android.os.Bundle;

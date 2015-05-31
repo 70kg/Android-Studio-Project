@@ -1,4 +1,4 @@
-package com.com.mr_wrong.test;
+package com.com.mr_wrong.CustomView;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -14,7 +14,6 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.Utils.Utils;
 import com.example.mr_wrong.androidstudioproject.R;
 
 /**
