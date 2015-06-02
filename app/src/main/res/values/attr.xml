@@ -54,4 +54,16 @@
         <attr name="criclewidth" format="dimension"></attr>
         <attr name="speed" format="integer"></attr>
     </declare-styleable>
+    <declare-styleable name="CustomVolumContralBar">
+        <attr name="bar_fristcolor" format="color"></attr>
+        <attr name="bar_secondcolor" format="color"></attr>
+        <attr name="dotcount" format="integer"></attr>
+        <attr name="circlewidth" format="dimension"></attr>
+        <attr name="splitsize" format="integer"></attr>
+        <attr name="bg" format="reference"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="BinarySlidingMenu">
+        <attr name="rightPadding" format="dimension" />
+    </declare-styleable>
 </resources>

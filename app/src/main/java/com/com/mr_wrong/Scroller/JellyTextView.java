@@ -38,14 +38,15 @@ public class JellyTextView extends TextView {
             case MotionEvent.ACTION_MOVE:
                 float disx = event.getRawX() - lastX;
                 float disy = event.getRawY() - lastY;
+                disx = Math.abs(disx)>getWidth()?getWidth():disx;
                 offsetLeftAndRight((int) disx);
-                offsetTopAndBottom((int) disy);
+               // offsetTopAndBottom((int) disy);
 
                 lastX = event.getRawX();
                 lastY = event.getRawY();
                 break;
             case MotionEvent.ACTION_UP:
-                mScroller.startScroll((int) getX(), (int) getY(), -(int) (getX() - startX), -(int) (getY() - startY));
+               // mScroller.startScroll((int) getX(), (int) getY(), -(int) (getX() - startX), -(int) (getY() - startY));
                 invalidate();
                 break;
         }
