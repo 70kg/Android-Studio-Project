@@ -3,9 +3,11 @@ package com.example.mr_wrong.androidstudioproject;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
+import com.com.mr_wrong.Actionbar.ActionbarActivity;
 import com.com.mr_wrong.AsyncTask.AsyncTaskActivity;
 import com.com.mr_wrong.Bezier.BezierActivity;
 import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
@@ -31,6 +33,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button bt_DragViewHelperActivity;
     private Button bt_PopButtonActivity;
     private Button bt_SlideActivity;
+    private Button bt_ActionbarActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_DragViewHelperActivity = (Button) findViewById(R.id.DragViewHelperActivity);
         bt_PopButtonActivity = (Button) findViewById(R.id.PopButtonActivity);
         bt_SlideActivity = (Button) findViewById(R.id.SlideActivity);
+        bt_ActionbarActivity = (Button) findViewById(R.id.ActionbarActivity);
 
         bt_AsyncTaskActivity.setOnClickListener(this);
         bt_BezierActivity.setOnClickListener(this);
@@ -60,6 +64,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_DragViewHelperActivity.setOnClickListener(this);
         bt_PopButtonActivity.setOnClickListener(this);
         bt_SlideActivity.setOnClickListener(this);
+        bt_ActionbarActivity.setOnClickListener(this);
     }
 
     @Override
@@ -110,7 +115,34 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 intent = new Intent(this, SlideActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.ActionbarActivity:
+                intent = new Intent(this, ActionbarActivity.class);
+                startActivity(intent);
+                break;
 
         }
+    }
+
+    float DownX, DownY, CurrentX, CurrentY;
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                DownX = event.getX();//float DownX
+                DownY = event.getY();//float DownY
+                break;
+            case MotionEvent.ACTION_MOVE:
+                float moveX = event.getX() - DownX;//X轴距离
+                float moveY = event.getY() - DownY;//y轴距离
+                bt_ScrollActivity.setTranslationX(moveX + CurrentX);
+                bt_ScrollActivity.setTranslationY(moveY + CurrentY);
+                break;
+            case MotionEvent.ACTION_UP:
+                CurrentX = bt_ScrollActivity.getTranslationX();
+                CurrentY = bt_ScrollActivity.getTranslationY();
+                break;
+        }
+        return super.onTouchEvent(event);
     }
 }

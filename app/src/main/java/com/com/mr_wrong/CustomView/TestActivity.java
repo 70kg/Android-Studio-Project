@@ -43,8 +43,8 @@ public class TestActivity extends Activity {
 
         menu1.setLayoutParams(new RelativeLayout.LayoutParams(4*width/5, ViewGroup.LayoutParams.MATCH_PARENT));
         menu2.setLayoutParams(new RelativeLayout.LayoutParams(width/2, ViewGroup.LayoutParams.MATCH_PARENT));
-        ObjectAnimator.ofFloat(menu2, "translationX", 0.0F, width).setDuration(1000).start();
-        ObjectAnimator.ofFloat(menu1, "translationX", 0.0F, width).setDuration(1000).start();
+        ObjectAnimator.ofFloat(menu2, "translationX", 0.0F, width).start();
+        ObjectAnimator.ofFloat(menu1, "translationX", 0.0F, width).start();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,9 +56,7 @@ public class TestActivity extends Activity {
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ObjectAnimator.ofFloat(menu2, "translationX", width, width / 2)
-                        .setDuration(1000)
-                        .start();
+                ObjectAnimator.ofFloat(menu2, "translationX", width, width / 2).setDuration(1000).start();
             }
         });
     }

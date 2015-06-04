@@ -5,4 +5,5 @@
     <color name="normal">#fff</color>
     <color name="press">#ff0</color>
     <color name="focue">#666</color>
+    <color name="actionbar_title_color">#ffff</color>
 </resources>

@@ -34,14 +34,14 @@ public class JellyTextView extends TextView {
             case MotionEvent.ACTION_DOWN:
                 lastX = event.getRawX();
                 lastY = event.getRawY();
-                break;
+               break;
+
             case MotionEvent.ACTION_MOVE:
                 float disx = event.getRawX() - lastX;
                 float disy = event.getRawY() - lastY;
-                disx = Math.abs(disx)>getWidth()?getWidth():disx;
+                disx = Math.abs(disx)>getWidth()/2?getWidth()/2:disx;
                 offsetLeftAndRight((int) disx);
                // offsetTopAndBottom((int) disy);
-
                 lastX = event.getRawX();
                 lastY = event.getRawY();
                 break;

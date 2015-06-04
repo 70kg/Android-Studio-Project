@@ -11,5 +11,5 @@
         <item>Scale</item>
         <item>Slide right and Scale</item>
     </string-array>
-
+    <string name="noboringactionbar_title">Beautiful picture</string>
 </resources>
