@@ -6,100 +6,107 @@
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AsyncTaskActivity"
         android:id="@+id/AsyncTaskActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="AsyncTaskActivity" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BezierActivity"
         android:id="@+id/BezierActivity"
-        android:layout_below="@+id/AsyncTaskActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/AsyncTaskActivity"
+        android:text="BezierActivity" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ImageLoaderActivity"
         android:id="@+id/ImageLoaderActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/BezierActivity"
-        android:layout_alignParentStart="true" />
+        android:text="ImageLoaderActivity" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RecyclerViewActivity"
         android:id="@+id/RecyclerViewActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/ImageLoaderActivity"
-        android:layout_alignParentStart="true" />
+        android:text="RecyclerViewActivity" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ScrollActivity"
         android:id="@+id/ScrollActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/RecyclerViewActivity"
-        android:layout_alignParentStart="true" />
+        android:text="ScrollActivity" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ItemAnimatorActivity"
         android:id="@+id/ItemAnimatorActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/ScrollActivity"
-        android:layout_alignParentStart="true" />
+        android:text="ItemAnimatorActivity" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VolleyActivity"
         android:id="@+id/VolleyActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/ItemAnimatorActivity"
-        android:layout_alignParentStart="true" />
+        android:text="VolleyActivity" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NumberProgressBarActivity"
         android:id="@+id/NumberProgressBarActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/VolleyActivity"
-        android:layout_alignParentStart="true" />
+        android:text="NumberProgressBarActivity" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DragViewHelperActivity"
         android:id="@+id/DragViewHelperActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/NumberProgressBarActivity"
-        android:layout_alignParentStart="true" />
+        android:text="DragViewHelperActivity" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PopButtonActivity"
         android:id="@+id/PopButtonActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/DragViewHelperActivity"
-        android:layout_alignParentStart="true" />
+        android:text="PopButtonActivity" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SlideActivity"
         android:id="@+id/SlideActivity"
-        android:layout_below="@+id/PopButtonActivity"
-        android:layout_alignParentStart="true" />
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ActionbarActivity"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/PopButtonActivity"
+        android:text="SlideActivity" />
+
+    <Button
         android:id="@+id/ActionbarActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/SlideActivity" />
+        android:layout_toEndOf="@+id/SlideActivity"
+        android:text="ActionbarActivity" />
+
+    <com.com.mr_wrong.CustomView.PickerView
+        android:layout_width="80dp"
+        android:id="@+id/pv"
+        android:layout_height="160dp"
+        android:layout_alignTop="@+id/RecyclerViewActivity"
+        android:layout_toEndOf="@+id/NumberProgressBarActivity" />
 </RelativeLayout>

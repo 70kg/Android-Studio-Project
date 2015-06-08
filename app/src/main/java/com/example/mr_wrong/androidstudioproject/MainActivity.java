@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.com.mr_wrong.Actionbar.ActionbarActivity;
 import com.com.mr_wrong.AsyncTask.AsyncTaskActivity;
 import com.com.mr_wrong.Bezier.BezierActivity;
+import com.com.mr_wrong.CustomView.PickerView;
 import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
 import com.com.mr_wrong.NumberProgressBar.NumberProgressBarActivity;
 import com.com.mr_wrong.PopButton.PopButtonActivity;
@@ -18,6 +19,9 @@ import com.com.mr_wrong.RecyclerViewItemAnimator.ItemAnimatorActivity;
 import com.com.mr_wrong.Scroller.ScrollActivity;
 import com.com.mr_wrong.SlideView.SlideActivity;
 import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -65,6 +69,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_PopButtonActivity.setOnClickListener(this);
         bt_SlideActivity.setOnClickListener(this);
         bt_ActionbarActivity.setOnClickListener(this);
+
+
+
+        List<String> data = new ArrayList<String>();
+        for (int i = 0; i < 10; i++)
+        {
+            data.add("0" + i);
+        }
+        PickerView pv = (PickerView) findViewById(R.id.pv);
+        pv.setData(data);
     }
 
     @Override
