@@ -44,6 +44,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         bt_BezierActivity = (Button) findViewById(R.id.BezierActivity);
         bt_AsyncTaskActivity = (Button) findViewById(R.id.AsyncTaskActivity);
         bt_ImageLoaderActivity = (Button) findViewById(R.id.ImageLoaderActivity);

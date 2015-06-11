@@ -12,8 +12,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.Utils.Utils;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -186,7 +184,7 @@ public class PickerView extends View {
         float d = (float) (MARGIN_ALPHA * mMinTextSize * position + type
                 * mMoveLen);
         float scale = parabola(mViewHeight / 4.0f, d);
-        Utils.Log("scale",scale);
+        //Utils.Log("scale",scale);
         float size = (mMaxTextSize - mMinTextSize) * scale + mMinTextSize;
         mPaint.setTextSize(size);
         mPaint.setAlpha((int) ((mMaxTextAlpha - mMinTextAlpha) * scale + mMinTextAlpha));

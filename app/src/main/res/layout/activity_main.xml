@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,7 +13,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="AsyncTaskActivity" />
+        android:gravity="center_vertical"
+        android:text="AsyncTaskActivity"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/BezierActivity"
@@ -104,9 +107,25 @@
         android:text="ActionbarActivity" />
 
     <com.com.mr_wrong.CustomView.PickerView
-        android:layout_width="80dp"
         android:id="@+id/pv"
+        android:layout_width="80dp"
         android:layout_height="160dp"
+
         android:layout_alignTop="@+id/RecyclerViewActivity"
         android:layout_toEndOf="@+id/NumberProgressBarActivity" />
+
+    <com.com.mr_wrong.CustomView.AddTextImageview
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_header_logo"
+        app:text="测试"
+        app:textcolor="@color/press"
+        app:textgravity=""
+        app:textsize="20sp"
+        app:texttop="30dp" />
+
+    <com.com.mr_wrong.CustomView.TestTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
