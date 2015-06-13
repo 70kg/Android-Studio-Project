@@ -121,9 +121,8 @@
         android:src="@drawable/ic_header_logo"
         app:text="测试"
         app:textcolor="@color/press"
-        app:textgravity=""
-        app:textsize="20sp"
-        app:texttop="30dp" />
+        app:textgravity="mid_mid"
+        app:textsize="20sp" />
 
     <com.com.mr_wrong.CustomView.TestTextView
         android:layout_width="wrap_content"

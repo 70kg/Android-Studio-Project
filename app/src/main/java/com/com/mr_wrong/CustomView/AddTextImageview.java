@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.ImageView;
 
+import com.Utils.LogUtils;
 import com.example.mr_wrong.androidstudioproject.R;
 
 /**
@@ -126,6 +127,7 @@ public class AddTextImageview extends ImageView {
         judegtextgravity(mTextGravity);
         x += mTextLeft;
         y += mTextTop;
+        LogUtils.e(y);
         canvas.drawText(mText, x, y, mPaint);
 
     }
