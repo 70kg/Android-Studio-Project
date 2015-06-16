@@ -1,63 +1,81 @@
 package com.com.mr_wrong.CustomView;
 
-import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.Utils.ScreenUtils;
-import com.com.mr_wrong.Scroller.JellyTextView;
 import com.example.mr_wrong.androidstudioproject.R;
 
 /**
  * Created by Mr_Wrong on 15/5/30.
  */
 public class TestActivity extends Activity {
-    Button button;
-    JellyTextView menu1;
 
-    JellyTextView menu2;
+    private PullScrollView mScrollView;
+    private ImageView mHeadImg;
 
-    public static void setLayout(View view, int x, int y) {
-        ViewGroup.MarginLayoutParams margin = new ViewGroup.MarginLayoutParams(view.getLayoutParams());
-        margin.setMargins(x, y, x + margin.width, y + margin.height);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(margin);
-        view.setLayoutParams(layoutParams);
-    }
+    private TableLayout mMainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customjob_layout);
-        button = (Button) findViewById(R.id.button1);
-        menu1 = (JellyTextView) findViewById(R.id.menu1);
-        menu2 = (JellyTextView) findViewById(R.id.menu2);
-        final int width = ScreenUtils.getScreenWidth(this);
-        int widthpx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                width, getResources().getDisplayMetrics());
 
-        menu1.setLayoutParams(new RelativeLayout.LayoutParams(4*width/5, ViewGroup.LayoutParams.MATCH_PARENT));
-        menu2.setLayoutParams(new RelativeLayout.LayoutParams(width/2, ViewGroup.LayoutParams.MATCH_PARENT));
-        ObjectAnimator.ofFloat(menu2, "translationX", 0.0F, width).start();
-        ObjectAnimator.ofFloat(menu1, "translationX", 0.0F, width).start();
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ObjectAnimator.ofFloat(menu1, "translationX", width, 1 * width / 3)
-                        .setDuration(1000)
-                        .start();
-            }
-        });
-        menu1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ObjectAnimator.ofFloat(menu2, "translationX", width, width / 2).setDuration(1000).start();
-            }
-        });
+        initView();
+
+        showTable();
     }
+
+    protected void initView() {
+        mScrollView = (PullScrollView) findViewById(R.id.scroll_view);
+        mHeadImg = (ImageView) findViewById(R.id.background_img);
+
+        mMainLayout = (TableLayout) findViewById(R.id.table_layout);
+
+        mScrollView.setHeader(mHeadImg);
+        //mScrollView.setOnTurnListener(this);
+    }
+
+    public void showTable() {
+        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(
+                TableRow.LayoutParams.MATCH_PARENT,
+                TableRow.LayoutParams.WRAP_CONTENT);
+        layoutParams.gravity = Gravity.CENTER;
+        layoutParams.leftMargin = 30;
+        layoutParams.bottomMargin = 10;
+        layoutParams.topMargin = 10;
+
+        for (int i = 0; i < 30; i++) {
+            TableRow tableRow = new TableRow(this);
+            TextView textView = new TextView(this);
+            textView.setText("Test pull down scroll view " + i);
+            textView.setTextSize(20);
+            textView.setPadding(15, 15, 15, 15);
+
+            tableRow.addView(textView, layoutParams);
+            if (i % 2 != 0) {
+                tableRow.setBackgroundColor(Color.LTGRAY);
+            } else {
+                tableRow.setBackgroundColor(Color.WHITE);
+            }
+
+            final int n = i;
+            tableRow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(TestActivity.this, "Click item " + n, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            mMainLayout.addView(tableRow);
+        }
+    }
+
 }

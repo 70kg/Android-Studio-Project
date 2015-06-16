@@ -6,4 +6,8 @@
     <color name="press">#ff0</color>
     <color name="focue">#666</color>
     <color name="actionbar_title_color">#ffff</color>
+
+
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
 </resources>
