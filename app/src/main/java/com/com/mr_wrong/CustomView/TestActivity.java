@@ -18,7 +18,7 @@ import com.example.mr_wrong.androidstudioproject.R;
  */
 public class TestActivity extends Activity {
 
-    private PullScrollView mScrollView;
+    private MyPullScrollView mScrollView;
     private ImageView mHeadImg;
 
     private TableLayout mMainLayout;
@@ -34,7 +34,7 @@ public class TestActivity extends Activity {
     }
 
     protected void initView() {
-        mScrollView = (PullScrollView) findViewById(R.id.scroll_view);
+        mScrollView = (MyPullScrollView) findViewById(R.id.scroll_view);
         mHeadImg = (ImageView) findViewById(R.id.background_img);
 
         mMainLayout = (TableLayout) findViewById(R.id.table_layout);

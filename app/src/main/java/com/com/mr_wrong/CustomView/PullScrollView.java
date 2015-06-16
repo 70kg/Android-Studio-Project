@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.widget.ScrollView;
 
-import com.Utils.LogUtils;
 import com.example.mr_wrong.androidstudioproject.R;
 
 
@@ -164,6 +163,7 @@ public class PullScrollView extends ScrollView {
         if (getChildCount() > 0) {
             mContentView = getChildAt(0);
         }
+
     }
 
     @Override
@@ -181,19 +181,20 @@ public class PullScrollView extends ScrollView {
             mTouchDownY = ev.getY();
             mCurrentTop = mInitTop = mHeader.getTop();//-299
             mCurrentBottom = mInitBottom = mHeader.getBottom();//601
-
         }
         return super.onInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+
         if (mContentView != null) {
             doTouchEvent(ev);
         }
-
+//        LogUtils.e(mEnableTouch);
+//        LogUtils.e(isMoving);
         // 禁止控件本身的滑动.
-        return mEnableTouch || super.onTouchEvent(ev);
+        return isMoving || super.onTouchEvent(ev);
     }
 
     /**
@@ -253,7 +254,7 @@ public class PullScrollView extends ScrollView {
         } else if (deltaY > 0 && mState == State.NORMAL) {
             mState = State.DOWN;
         }
-        LogUtils.e(mState);
+       // LogUtils.e(mState);
         if (mState == State.UP) {
             deltaY = deltaY < 0 ? deltaY : 0;
             //LogUtils.e(deltaY);//0- -...
@@ -262,7 +263,7 @@ public class PullScrollView extends ScrollView {
 
         } else if (mState == State.DOWN) {
             if (getScrollY() <= deltaY) {
-                mEnableTouch = true;
+               mEnableTouch = true;
                 isMoving = true;
             }
 //            LogUtils.e(getScrollY());
@@ -291,10 +292,10 @@ public class PullScrollView extends ScrollView {
             int top = (int) (mContentRect.top + contentMoveHeight);
             int bottom = (int) (mContentRect.bottom + contentMoveHeight);
 
-            if (top <= headerBottom) {//最多滚动到图片下
+            if (top <= headerBottom) {//top一直在header里面
                 // 移动content view
                 mContentView.layout(mContentRect.left, top, mContentRect.right, bottom);
-
+                //LogUtils.e(top);
                 // 移动header view
                 mHeader.layout(mHeader.getLeft(), mCurrentTop, mHeader.getRight(), mCurrentBottom);
             }
