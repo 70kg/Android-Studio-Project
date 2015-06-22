@@ -10,4 +10,7 @@
 
     <color name="white">#ffffff</color>
     <color name="transparent">#00000000</color>
+
+    <drawable name="background">#eeeeee</drawable>
+
 </resources>

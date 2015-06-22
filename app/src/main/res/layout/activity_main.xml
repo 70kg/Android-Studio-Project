@@ -110,7 +110,6 @@
         android:id="@+id/pv"
         android:layout_width="80dp"
         android:layout_height="160dp"
-
         android:layout_alignTop="@+id/RecyclerViewActivity"
         android:layout_toEndOf="@+id/NumberProgressBarActivity" />
 
