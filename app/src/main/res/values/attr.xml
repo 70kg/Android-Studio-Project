@@ -90,4 +90,9 @@
         <attr name="headerHeight" format="dimension" />
         <attr name="headerVisibleHeight" format="dimension" />
     </declare-styleable>
+    <declare-styleable name="RockView">
+        <attr name="rockcolor" format="color" />
+        <attr name="delaytime" format="integer" />
+        <attr name="rockspeed" format="integer" />
+    </declare-styleable>
 </resources>

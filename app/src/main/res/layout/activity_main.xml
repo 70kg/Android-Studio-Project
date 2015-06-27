@@ -126,4 +126,12 @@
     <com.com.mr_wrong.CustomView.TestTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+
+    <include
+        layout="@layout/rockgroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/BezierActivity"
+        android:layout_alignEnd="@+id/ActionbarActivity" />
 </RelativeLayout>
