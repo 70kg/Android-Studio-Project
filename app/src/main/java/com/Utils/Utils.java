@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
+import android.widget.Toast;
 
 /**
  * Created by Mr_Wrong on 2015/5/26.
@@ -43,7 +44,9 @@ public class Utils {
         return (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_PX, sp, context.getResources().getDisplayMetrics());
     }
-
+    public static void ShowToast(Context context,String message) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+    }
     public static Bitmap drawableToBitamp(Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {
             BitmapDrawable bd = (BitmapDrawable) drawable;
