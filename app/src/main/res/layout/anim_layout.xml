@@ -66,4 +66,13 @@
         android:id="@+id/bt_6"
         android:layout_below="@+id/bt_3"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试动画"
+        android:id="@+id/bt_7"
+        android:layout_below="@+id/bt_4"
+        android:layout_toEndOf="@+id/bt_ObjectAnimator" />
+
 </RelativeLayout>

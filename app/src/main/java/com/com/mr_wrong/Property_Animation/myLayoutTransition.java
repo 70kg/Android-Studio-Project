@@ -75,7 +75,7 @@ public class myLayoutTransition extends BaseActivity implements CompoundButton.O
         mLayoutTransition.setAnimator(LayoutTransition.APPEARING, (idAppear.isChecked() ? ObjectAnimator.ofFloat(this, "scaleX", 0f, 1.0f) : null));
 
         mLayoutTransition.setAnimator(LayoutTransition.CHANGE_APPEARING, (idChangeAppear.isChecked() ? mLayoutTransition.getAnimator(LayoutTransition.CHANGE_APPEARING) : null));
-        mLayoutTransition.setAnimator(LayoutTransition.DISAPPEARING, (idDisappear.isChecked() ? mLayoutTransition.getAnimator(LayoutTransition.DISAPPEARING) : null));
+        mLayoutTransition.setAnimator(LayoutTransition.DISAPPEARING, (idDisappear.isChecked() ? ObjectAnimator.ofFloat(this,"scaleY",1.0f,0f) : null));
         mLayoutTransition.setAnimator(LayoutTransition.CHANGE_DISAPPEARING, (idChangeDisappear.isChecked() ? mLayoutTransition.getAnimator(LayoutTransition.CHANGE_DISAPPEARING) : null));
 
         mGridlayout.setLayoutTransition(mLayoutTransition);

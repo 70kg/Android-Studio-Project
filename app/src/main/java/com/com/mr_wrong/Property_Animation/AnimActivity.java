@@ -2,6 +2,7 @@ package com.com.mr_wrong.Property_Animation;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
@@ -15,7 +16,6 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.Utils.LogUtils;
 import com.example.mr_wrong.androidstudioproject.R;
 
 import butterknife.InjectView;
@@ -42,6 +42,8 @@ public class AnimActivity extends BaseActivity {
     Button bt5;
     @InjectView(R.id.bt_6)
     Button bt6;
+    @InjectView(R.id.bt_7)
+    Button bt7;
 
     @OnClick(R.id.bt_ObjectAnimator)
     public void sayHi(Button button) {
@@ -85,12 +87,12 @@ public class AnimActivity extends BaseActivity {
             }
         });
         //不想实现全部方法  可以使用animatorlistneradapter
-//        valueAnimator.addListener(new AnimatorListenerAdapter() {
-//            @Override
-//            public void onAnimationEnd(Animator animation) {
-//                super.onAnimationEnd(animation);
-//            }
-//        });
+        valueAnimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+            }
+        });
         valueAnimator.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animator) {
@@ -125,11 +127,11 @@ public class AnimActivity extends BaseActivity {
         valueAnimator.setDuration(1000);
         valueAnimator.setObjectValues(new PointF(0, 0));
         valueAnimator.setInterpolator(new LinearInterpolator());
-        valueAnimator.setEvaluator(new TypeEvaluator() {
+        valueAnimator.setEvaluator(new TypeEvaluator<PointF>() {
             @Override
-            public Object evaluate(float v, Object o, Object t1) {
+            public PointF evaluate(float v, PointF pointF, PointF t1) {
                 PointF p = new PointF();
-                LogUtils.e(v);
+                // LogUtils.e(v);
                 p.x = 200 * v * 3;
                 p.y = 100 * v * 3 * v * 3;
                 return p;
@@ -193,8 +195,16 @@ public class AnimActivity extends BaseActivity {
 
     @OnClick(R.id.bt_6)
     public void LayoutTransition() {
-        Intent intent = new Intent(this,myLayoutTransition.class);
+        Intent intent = new Intent(this, myLayoutTransition.class);
         startActivity(intent);
+    }
+
+    @OnClick(R.id.bt_7)
+    public void Transition() {
+        Intent intent = new Intent(this, PActivity.class);
+        this.startActivity(intent);
+        overridePendingTransition(0, 0);
+
     }
 
     @Override

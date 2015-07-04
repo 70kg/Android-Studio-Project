@@ -25,4 +25,19 @@
     <style name="ActionBarStyle.Transparent.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
+
+    </style>
+    <style name="AppTheme3" parent="AppBaseTheme"></style>
+    <style name="TranslucentTheme" parent="AppBaseTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <!--<item name="android:theme">@style/Translucent</item>-->
+    </style>
+    <style
+        name="Translucent" parent="android:style/Theme.Translucent">
+        <item name="android:windowBackground">@drawable/translucent_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:colorForeground">#fff</item>
+    </style>
 </resources>
