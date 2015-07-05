@@ -8,7 +8,7 @@
     <com.com.mr_wrong.CustomView.RockView
         android:layout_width="40dp"
         android:layout_height="40dp"
-
+        app:delaytime="0"
         app:rockcolor="@color/press" />
 
     <com.com.mr_wrong.CustomView.RockView
@@ -20,12 +20,12 @@
     <com.com.mr_wrong.CustomView.RockView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        app:delaytime="500"
+        app:delaytime="600"
         app:rockcolor="@color/switch_thumb_disabled_material_light" />
 
     <com.com.mr_wrong.CustomView.RockView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        app:delaytime="700"
+        app:delaytime="900"
         app:rockcolor="@color/accent_material_light" />
 </LinearLayout>

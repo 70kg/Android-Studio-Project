@@ -9,7 +9,10 @@ import android.animation.PropertyValuesHolder;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.PointF;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.LinearInterpolator;
@@ -201,12 +204,19 @@ public class AnimActivity extends BaseActivity {
 
     @OnClick(R.id.bt_7)
     public void Transition() {
-        Intent intent = new Intent(this, PActivity.class);
-        this.startActivity(intent);
-        overridePendingTransition(0, 0);
+//        Intent intent = new Intent(this, PActivity.class);
+//        this.startActivity(intent);
+//        overridePendingTransition(0, 0);
+        mTestImage.setImageBitmap(createViewBitmap(btObjectAnimator));
 
     }
-
+    public Bitmap createViewBitmap(View v) {
+        Bitmap bitmap = Bitmap.createBitmap(v.getWidth(), v.getHeight(),
+                Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        v.draw(canvas);
+        return bitmap;
+    }
     @Override
     public void setContentView() {
         setContentView(R.layout.anim_layout);
