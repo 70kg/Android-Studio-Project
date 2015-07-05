@@ -30,6 +30,7 @@ public enum AllActivitys {
     PopButtonActivity(PopButtonActivity.class),
     SlideActivity(SlideActivity.class),
     ActionbarActivity(ActionbarActivity.class);
+    //ActionbarActivity(ActionbarActivity.class);
 
     private Class activityClazz;
 
