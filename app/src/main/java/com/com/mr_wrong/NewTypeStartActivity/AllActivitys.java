@@ -3,8 +3,9 @@ package com.com.mr_wrong.NewTypeStartActivity;
 import android.app.Activity;
 
 import com.com.mr_wrong.Actionbar.ActionbarActivity;
-import com.com.mr_wrong.Bezier.BezierActivity;
 import com.com.mr_wrong.AsyncTask.AsyncTaskActivity;
+import com.com.mr_wrong.Bezier.BezierActivity;
+import com.com.mr_wrong.GaoFeng.GFMainActivity;
 import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
 import com.com.mr_wrong.NumberProgressBar.NumberProgressBarActivity;
 import com.com.mr_wrong.PopButton.PopButtonActivity;
@@ -29,9 +30,8 @@ public enum AllActivitys {
     ViewDraghelper(com.com.mr_wrong.ViewDraghelper.MainActivity.class),
     PopButtonActivity(PopButtonActivity.class),
     SlideActivity(SlideActivity.class),
-    ActionbarActivity(ActionbarActivity.class);
-    //ActionbarActivity(ActionbarActivity.class);
-
+    ActionbarActivity(ActionbarActivity.class),
+    GFMainActivity(GFMainActivity.class);
     private Class activityClazz;
 
     private AllActivitys(Class clazz) {

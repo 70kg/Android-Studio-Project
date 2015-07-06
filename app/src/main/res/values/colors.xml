@@ -13,5 +13,6 @@
     <color name="transparent">#00000000</color>
 
     <drawable name="background">#eeeeee</drawable>
+    <color name="black">#000000</color>
 
 </resources>

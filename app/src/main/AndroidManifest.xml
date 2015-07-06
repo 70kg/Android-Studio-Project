@@ -36,10 +36,10 @@
         <activity android:name="com.com.mr_wrong.SlideView.SlideActivity"></activity>
         <activity android:name="com.com.mr_wrong.Actionbar.ActionbarActivity"></activity>
         <activity android:name="com.com.mr_wrong.Property_Animation.myLayoutTransition"></activity>
-        <activity android:name="com.com.mr_wrong.Property_Animation.PActivity"
-            android:theme="@style/Translucent">
-        </activity>
-
+        <activity
+            android:name="com.com.mr_wrong.Property_Animation.PActivity"
+            android:theme="@style/Translucent"></activity>
+        <activity android:name="com.com.mr_wrong.GaoFeng.GFMainActivity"></activity>
 
     </application>
 
