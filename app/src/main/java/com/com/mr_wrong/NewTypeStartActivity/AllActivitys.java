@@ -9,6 +9,7 @@ import com.com.mr_wrong.GaoFeng.GFMainActivity;
 import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
 import com.com.mr_wrong.NumberProgressBar.NumberProgressBarActivity;
 import com.com.mr_wrong.PopButton.PopButtonActivity;
+import com.com.mr_wrong.Property_Animation.AnimActivity;
 import com.com.mr_wrong.RecyclerView.RecyclerViewActivity;
 import com.com.mr_wrong.RecyclerViewItemAnimator.ItemAnimatorActivity;
 import com.com.mr_wrong.Scroller.ScrollActivity;
@@ -31,7 +32,8 @@ public enum AllActivitys {
     PopButtonActivity(PopButtonActivity.class),
     SlideActivity(SlideActivity.class),
     ActionbarActivity(ActionbarActivity.class),
-    GFMainActivity(GFMainActivity.class);
+    GFMainActivity(GFMainActivity.class),
+    AnimActivity(AnimActivity.class);
     private Class activityClazz;
 
     private AllActivitys(Class clazz) {

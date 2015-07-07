@@ -40,7 +40,7 @@
             android:name="com.com.mr_wrong.Property_Animation.PActivity"
             android:theme="@style/Translucent"></activity>
         <activity android:name="com.com.mr_wrong.GaoFeng.GFMainActivity"></activity>
-
+        <activity android:name="com.com.mr_wrong.Property_Animation.AnimActivity"></activity>
     </application>
 
 </manifest>
