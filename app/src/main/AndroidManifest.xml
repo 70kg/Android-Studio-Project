@@ -41,6 +41,7 @@
             android:theme="@style/Translucent"></activity>
         <activity android:name="com.com.mr_wrong.GaoFeng.GFMainActivity"></activity>
         <activity android:name="com.com.mr_wrong.Property_Animation.AnimActivity"></activity>
+    <activity android:name="com.com.mr_wrong.CustomView.CustomViewActivity"></activity>
     </application>
 
 </manifest>

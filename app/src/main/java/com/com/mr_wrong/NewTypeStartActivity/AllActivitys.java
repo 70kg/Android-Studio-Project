@@ -5,6 +5,7 @@ import android.app.Activity;
 import com.com.mr_wrong.Actionbar.ActionbarActivity;
 import com.com.mr_wrong.AsyncTask.AsyncTaskActivity;
 import com.com.mr_wrong.Bezier.BezierActivity;
+import com.com.mr_wrong.CustomView.CustomViewActivity;
 import com.com.mr_wrong.GaoFeng.GFMainActivity;
 import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
 import com.com.mr_wrong.NumberProgressBar.NumberProgressBarActivity;
@@ -33,7 +34,8 @@ public enum AllActivitys {
     SlideActivity(SlideActivity.class),
     ActionbarActivity(ActionbarActivity.class),
     GFMainActivity(GFMainActivity.class),
-    AnimActivity(AnimActivity.class);
+    AnimActivity(AnimActivity.class),
+    CustomViewActivity(CustomViewActivity.class);
     private Class activityClazz;
 
     private AllActivitys(Class clazz) {

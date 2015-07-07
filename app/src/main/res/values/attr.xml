@@ -91,8 +91,18 @@
         <attr name="headerVisibleHeight" format="dimension" />
     </declare-styleable>
     <declare-styleable name="RockView">
+
         <attr name="rockcolor" format="color" />
         <attr name="delaytime" format="integer" />
         <attr name="rockspeed" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ArcView">
+
+        <attr name="degree" format="float"/>
+        <attr name="arccolor" format="color"/>
+        <attr name="incriclecolor" format="color"/>
+        <attr name="outcriclecolor" format="color"/>
+        <attr name="arcwidth" format="dimension"/>
     </declare-styleable>
 </resources>
