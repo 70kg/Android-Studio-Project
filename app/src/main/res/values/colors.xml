@@ -14,5 +14,8 @@
 
     <drawable name="background">#eeeeee</drawable>
     <color name="black">#000000</color>
+    <color name="bg_gray">#F6F6F6</color>
+    <color name="red">#FF0000</color>
+    <color name="blue">#3991EA</color>
 
 </resources>

@@ -25,7 +25,6 @@ public class BaseFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mBaseTextView = (TextView) rootView.findViewById(R.id.tv_base);
 
     }
 }

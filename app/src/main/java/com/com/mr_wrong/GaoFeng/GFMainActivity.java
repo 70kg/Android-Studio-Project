@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.mr_wrong.androidstudioproject.R;
 
@@ -45,13 +46,15 @@ public class GFMainActivity extends FragmentActivity implements View.OnClickList
     List<Fragment> mFragments;
     FragmentPagerAdapter mAdapter;
 
+    @InjectView(R.id.tv_top)
+    TextView mTopText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.gf_main);
         ButterKnife.inject(this);
-
         init();
 
     }
@@ -112,18 +115,19 @@ public class GFMainActivity extends FragmentActivity implements View.OnClickList
         switch (i) {
             case 0:
                 mImageButton1.setImageResource(R.drawable.tab_weixin_pressed);
+                mTopText.setText("精品推荐");
                 break;
             case 1:
                 mImageButton2.setImageResource(R.drawable.tab_find_frd_pressed);
-
+                mTopText.setText("理财列表");
                 break;
             case 2:
                 mImageButton3.setImageResource(R.drawable.tab_address_pressed);
-
+                mTopText.setText("我的财富");
                 break;
             case 3:
                 mImageButton4.setImageResource(R.drawable.tab_settings_pressed);
-
+                mTopText.setText("个人中心");
                 break;
         }
 
