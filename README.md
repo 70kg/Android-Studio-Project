@@ -34,3 +34,6 @@
 ![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/popupbutton.gif)
 12.复习自定义View
 ---
+13.属性动画基础
+---
+![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/Property_ainm.png)
