@@ -13,8 +13,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.PointF;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.BounceInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -80,13 +79,14 @@ public class AnimActivity extends BaseActivity {
         //使用ValueAnimator 没有在属性上进行操作   (垂直移动)
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 500);
         valueAnimator.setTarget(mTestImage);
-        valueAnimator.setDuration(500);
-        valueAnimator.setInterpolator(new BounceInterpolator());
+        valueAnimator.setDuration(1000);
+        valueAnimator.setInterpolator(new DecelerateInterpolator());
         valueAnimator.start();
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                mTestImage.setTranslationY((float) valueAnimator.getAnimatedValue());
+                mTestImage.setTranslationX((float) valueAnimator.getAnimatedValue());
+               // valueAnimator.seta
             }
         });
         //不想实现全部方法  可以使用animatorlistneradapter
@@ -104,11 +104,11 @@ public class AnimActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                ViewGroup parent = (ViewGroup) mTestImage.getParent();
-                if (parent != null) {
-                    parent.removeView(mTestImage);
-                }
-                tool.ShowToast("删除图片");
+//                ViewGroup parent = (ViewGroup) mTestImage.getParent();
+//                if (parent != null) {
+//                    parent.removeView(mTestImage);
+//                }
+//                tool.ShowToast("删除图片");
             }
 
             @Override
