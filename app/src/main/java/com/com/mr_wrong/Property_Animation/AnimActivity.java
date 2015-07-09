@@ -13,7 +13,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.PointF;
 import android.view.View;
-import android.view.animation.DecelerateInterpolator;
+import android.view.animation.BounceInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -80,7 +80,7 @@ public class AnimActivity extends BaseActivity {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 500);
         valueAnimator.setTarget(mTestImage);
         valueAnimator.setDuration(1000);
-        valueAnimator.setInterpolator(new DecelerateInterpolator());
+        valueAnimator.setInterpolator(new BounceInterpolator());
         valueAnimator.start();
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
