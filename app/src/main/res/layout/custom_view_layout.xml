@@ -5,26 +5,29 @@
     android:layout_height="match_parent"
 >
 
-    <com.com.mr_wrong.CustomJobView.ArcView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:arcwidth="3dp"
-        app:degree="0.4"
-        android:id="@+id/view"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+    <!--<com.com.mr_wrong.CustomJobView.ArcView-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--app:arcwidth="3dp"-->
+        <!--app:degree="0.4"-->
+        <!--android:id="@+id/view"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentStart="true" />-->
 
-    <com.com.mr_wrong.Bezier.WaveView
-        android:layout_width="100dp"
-        android:layout_height="300dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
-    <com.com.mr_wrong.Bezier.MyWaveView
-        android:layout_width="200dp"
+    <!--<com.com.mr_wrong.Bezier.WaveView-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="300dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentStart="true" />-->
+    <!--<com.com.mr_wrong.Bezier.MyWaveView-->
+        <!--android:layout_width="200dp"-->
 
-        android:layout_height="200dp"
-        android:layout_below="@+id/view"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="47dp"
-         />
+        <!--android:layout_height="200dp"-->
+        <!--android:layout_below="@+id/view"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginTop="47dp"-->
+         <!--/>-->
+    <com.com.mr_wrong.Bezier.TestBezier
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>

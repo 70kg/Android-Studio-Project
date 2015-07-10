@@ -16,7 +16,7 @@ import com.com.mr_wrong.RecyclerViewItemAnimator.ItemAnimatorActivity;
 import com.com.mr_wrong.Scroller.ScrollActivity;
 import com.com.mr_wrong.SlideView.SlideActivity;
 import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
-
+import com.com.mr_wrong.Palette.PaletteActivity;
 /**
  * Created by Mr_Wrong on 15/7/5.
  */
@@ -35,7 +35,11 @@ public enum AllActivitys {
     ActionbarActivity(ActionbarActivity.class),
     GFMainActivity(GFMainActivity.class),
     AnimActivity(AnimActivity.class),
-    CustomViewActivity(CustomViewActivity.class);
+    CustomViewActivity(CustomViewActivity.class),
+    PaletteActivity(PaletteActivity.class);
+
+
+
     private Class activityClazz;
 
     private AllActivitys(Class clazz) {

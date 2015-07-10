@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PathMeasure;
 import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Message;
@@ -13,6 +14,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.Utils.LogUtils;
 import com.example.mr_wrong.androidstudioproject.R;
 
 import java.util.ArrayList;
@@ -44,6 +46,7 @@ public class ArcView extends View {
     int degree;
     float arcwidth;
     float archeight;
+
     public ArcView(Context context) {
         this(context, null);
     }
@@ -67,6 +70,10 @@ public class ArcView extends View {
         mPointsList = new ArrayList<Point>();
         timer = new Timer();
         mPaint = new Paint();
+        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setAntiAlias(true);
+
+
         mPath = new Path();
         mPath1 = new Path();
     }
@@ -162,8 +169,6 @@ public class ArcView extends View {
 
     }
 
-
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -216,8 +221,6 @@ public class ArcView extends View {
 
         //内圆
         mPaint.setColor(mInColor);
-        mPaint.setStyle(Paint.Style.FILL);
-        mPaint.setAntiAlias(true);
         canvas.drawCircle(centre, centre, cricle_radius_width, mPaint);
 
         //外圆
@@ -242,14 +245,69 @@ public class ArcView extends View {
                             .getX(), mPointsList.get(i + 2).getY());
         }
         mPath.arcTo(rect, startangle - 90, sweepangle);
-        mPath1.arcTo(rect,startangle - 90, 360, true);
+        mPath1.arcTo(rect, startangle - 90, 360, true);
+        LogUtils.e(startangle - 90);
         mPaint.setColor(Color.BLUE);
         mPaint.setStyle(Paint.Style.FILL);
         canvas.clipPath(mPath1);
         canvas.drawPath(mPath, mPaint);
 
 
+        //获取path上的点
+
+        PathMeasure pathMeasure = new PathMeasure(mPath1, false);
+        float length = pathMeasure.getLength();
+        float speed = length / 100;
+        float dis = 0;
+        int count = 0;
+        float[] aCoordinates = new float[2];
+        mPaint.setColor(Color.RED);
+        mPaint.setStyle(Paint.Style.FILL);
+        FlaotPoint[] pointArray = new FlaotPoint[200];
+        while (dis < length && count < 100) {
+            pathMeasure.getPosTan(dis, aCoordinates, null);
+            dis += speed;
+            count++;
+            pointArray[count] = new FlaotPoint(aCoordinates[0],
+                    aCoordinates[1]);
+
+            canvas.drawCircle(pointArray[count].getX(), pointArray[count].getY(), 20, mPaint);
+            mPaint.setColor(Color.BLACK);
+            if(pointArray[count-1]!=null){
+                canvas.drawCircle(pointArray[count-1].getX(), pointArray[count-1].getY(), 20, mPaint);
+
+            }
+
+
+            // LogUtils.e("x--->"+aCoordinates[0]+"  y--->"+aCoordinates[1]);
+            if (pointArray[50] != null) {
+                //LogUtils.e(pointArray[50].getY());
+                LogUtils.e(pointArray[50].getX());
+//                canvas.drawCircle(pointArray[50].getX(), pointArray[50].getY(), 20, mPaint);
+            }
+
+        }
+
+
     }
+
+    class FlaotPoint {
+        float x, y;
+
+        public FlaotPoint(float x, float y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public float getX() {
+            return x;
+        }
+
+        public float getY() {
+            return y;
+        }
+    }
+
     class Point {
         private float x;
         private float y;
