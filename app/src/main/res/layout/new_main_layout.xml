@@ -4,8 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/lv_new_main"
+    <com.com.mr_wrong.PullToRefresh.PullToRefreshView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent">
+
+        <ListView
+            android:background="@color/white"
+            android:id="@+id/lv_new_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.com.mr_wrong.PullToRefresh.PullToRefreshView>
+
 </LinearLayout>
