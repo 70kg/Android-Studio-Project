@@ -1,14 +1,17 @@
 package com.com.mr_wrong.PullToRefresh;
 
 import android.content.Context;
+import android.view.animation.Interpolator;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.Transformation;
 import android.widget.ImageView;
 
-import com.Utils.LogUtils;
 import com.Utils.Utils;
 
 /**
@@ -25,8 +28,10 @@ public class PullToRefreshView extends ViewGroup {
     private boolean mIsBeingDraged;
     private float mInitDownY;
     private BaseRefreshView mBaseRefreshView;
-
+    private int mFrom;
+    private float mFromDragPercent;
     private float mCurrentDragPercent;
+    private Interpolator mInterpolator;
 
     public PullToRefreshView(Context context) {
         this(context, null);
@@ -36,12 +41,14 @@ public class PullToRefreshView extends ViewGroup {
         super(context, attrs);
 
         mRefreshview = new ImageView(context);
-        //mRefreshview.setLayoutParams(new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-        mBaseRefreshView = new SunRefreshView(getContext(),this);
+        mInterpolator = new BounceInterpolator();
+        mBaseRefreshView = new SunRefreshView(getContext(), this);
         mRefreshview.setImageDrawable(mBaseRefreshView);
         addView(mRefreshview);
         mTotalDragDistance = Utils.dip2px(context, DRAG_MAX_DISTANCE);
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+
+        setWillNotDraw(false);
 
     }
 
@@ -60,11 +67,6 @@ public class PullToRefreshView extends ViewGroup {
     /**
      * 获取child
      */
-//    private void ensuretarget() {
-//        for (int i = 0; i < getChildCount(); i++) {
-//            mTarget = getChildAt(0);
-//        }
-//    }
     private void ensureTarget() {
         if (mTarget != null)
             return;
@@ -123,22 +125,30 @@ public class PullToRefreshView extends ViewGroup {
                     return false;
                 }
                 float boundedDragPercent = Math.min(1f, Math.abs(mCurrentDragPercent));
+                // LogUtils.e(boundedDragPercent);//0-1
+
                 float extraOS = Math.abs(scrollTop) - mTotalDragDistance;
+                //LogUtils.e(extraOS);//-330-+300+
+
                 float slingshotDist = mTotalDragDistance;//330弹弓
-                float tensionSlingshotPercent = Math.max(0,        //张力弹弓
-                        Math.min(extraOS, slingshotDist * 2) / slingshotDist);
+                float tensionSlingshotPercent = Math.max(0, extraOS / 330);//张力弹弓
                 //Log.e("tensionSlingshotPercent----", tensionSlingshotPercent+"");//0-0.23....
-                float tensionPercent = (float) ((tensionSlingshotPercent / 4) - Math.pow(
-                        (tensionSlingshotPercent / 4), 2)) * 2f;
+
+                float tensionPercent = (float) ((tensionSlingshotPercent / 4) -
+                        Math.pow((tensionSlingshotPercent / 4), 2)) * 2f;
                 //Log.e("tensionPercent----", tensionPercent+"");//0-0.24...
+
                 float extraMove = (slingshotDist) * tensionPercent / 2;
                 int targetY = (int) ((slingshotDist * boundedDragPercent) + extraMove);
+                //LogUtils.e(targetY);//0-330+
+
                 //Log.e("mCurrentDragPercent----", mCurrentDragPercent+"");//0-0.24...
-                 mBaseRefreshView.setPercent(mCurrentDragPercent, true);//在这里将百分比穿进去的啊
+                mBaseRefreshView.setPercent(mCurrentDragPercent, true);//在这里将百分比穿进去的啊
                 //Log.e("targetY - mCurrentOffsetTop----", targetY - mCurrentOffsetTop+"");//很小整数
                 setTargetOffsetTop(targetY - mCurrentOffSetTop);//如果注释，向下滑动list没反应，targetY - mCurrentOffsetTop一直变大
                 break;
             case MotionEvent.ACTION_UP:
+                animateOffsetToStartPosition();
 
                 break;
         }
@@ -166,13 +176,66 @@ public class PullToRefreshView extends ViewGroup {
      * @param OffsetTop
      */
     public void setTargetOffsetTop(int OffsetTop) {
-        LogUtils.e(OffsetTop);//向下就是正，向上就是负
+        //LogUtils.e(OffsetTop);//向下就是正，向上就是负
         mTarget.offsetTopAndBottom(OffsetTop);//相对的移动距离
         mBaseRefreshView.offsetTopAndBottom(OffsetTop);
         mCurrentOffSetTop = mTarget.getTop();
         invalidate();
     }
+
     public int getTotalDragDistance() {
         return mTotalDragDistance;
     }
+
+    /**
+     * 滚动到起始位置
+     */
+    private void animateOffsetToStartPosition() {
+        mFrom = mCurrentOffSetTop;
+        //Log.e("mFrom-====", mFrom+"");330
+        mFromDragPercent = mCurrentDragPercent;
+        long animationDuration = Math.abs((long) (700 * mFromDragPercent));
+
+        mAnimateToStartPosition.reset();
+        mAnimateToStartPosition.setDuration(animationDuration);
+        mAnimateToStartPosition.setInterpolator(mInterpolator);
+        mAnimateToStartPosition.setAnimationListener(mToStartListener);
+
+        mRefreshview.clearAnimation();
+        mRefreshview.startAnimation(mAnimateToStartPosition);
+    }
+
+    private final Animation mAnimateToStartPosition = new Animation() {
+        @Override
+        public void applyTransformation(float interpolatedTime, Transformation t) {
+            //Log.e("mAnimateToStartPosition----interpolatedTime", interpolatedTime+"");
+            moveToStart(interpolatedTime);
+        }
+    };
+
+    private void moveToStart(float interpolatedTime) {
+        int targetTop = mFrom - (int) (mFrom * interpolatedTime);
+        float targetPercent = mFromDragPercent * (1.0f - interpolatedTime);
+        int offset = targetTop - mTarget.getTop();
+
+        mCurrentDragPercent = targetPercent;
+        mBaseRefreshView.setPercent(mCurrentDragPercent, true);
+        setTargetOffsetTop(offset);
+    }
+
+    private Animation.AnimationListener mToStartListener = new Animation.AnimationListener() {
+        @Override
+        public void onAnimationStart(Animation animation) {
+        }
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {
+        }
+
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            mBaseRefreshView.stop();
+            mCurrentOffSetTop = mTarget.getTop();
+        }
+    };
 }
