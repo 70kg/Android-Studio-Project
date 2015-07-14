@@ -45,18 +45,20 @@ public class PullToRefreshView extends ViewGroup {
         mBaseRefreshView = new SunRefreshView(getContext(), this);
         mRefreshview.setImageDrawable(mBaseRefreshView);
         addView(mRefreshview);
+
         mTotalDragDistance = Utils.dip2px(context, DRAG_MAX_DISTANCE);
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
 
         setWillNotDraw(false);
+
 
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        ensureTarget();
 
+        ensureTarget();
         widthMeasureSpec = MeasureSpec.makeMeasureSpec(getWidth() - getPaddingLeft() - getPaddingRight(), MeasureSpec.EXACTLY);
         heightMeasureSpec = MeasureSpec.makeMeasureSpec(getHeight() - getPaddingTop() - getPaddingBottom(), MeasureSpec.EXACTLY);
 
@@ -166,8 +168,8 @@ public class PullToRefreshView extends ViewGroup {
         int right = getPaddingRight();
         int bottom = getPaddingBottom();
 
-        mTarget.layout(left, top + mCurrentOffSetTop, left + width - right, top + mCurrentOffSetTop + height - bottom);
         mRefreshview.layout(left, top, left + width - right, top + height - bottom);
+        mTarget.layout(left, top + mCurrentOffSetTop, left + width - right, top + mCurrentOffSetTop + height - bottom);
     }
 
     /**
