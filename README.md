@@ -37,3 +37,5 @@
 13.属性动画基础
 ---
 ![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/Property_ainm.png)
+14.Palette使用
+![](http://7xjlmz.com1.z0.glb.clouddn.com/palette.jpg)
