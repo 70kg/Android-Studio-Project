@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mr_wrong.androidstudioproject.R;
 
@@ -45,6 +46,17 @@ public class VolleyActivity extends Activity {
     private void initData(String url) {
         RequestQueue mQueue = Volley.newRequestQueue(this);
 
+        StringRequest request = new StringRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String s) {
+Log.e()
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+
+            }
+        });
         GsonRequest<Weather> gsonRequest = new GsonRequest<Weather>(url
                 , Weather.class,
                 new Response.Listener<Weather>() {

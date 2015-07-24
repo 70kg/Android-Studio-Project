@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.view.View;
-import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,7 @@ public class PathAnimation extends View {
     public PathAnimation(Context context) {
         super(context);
 
-        WindowManager wm = getw
+       // WindowManager wm = getw
     }
 
 
