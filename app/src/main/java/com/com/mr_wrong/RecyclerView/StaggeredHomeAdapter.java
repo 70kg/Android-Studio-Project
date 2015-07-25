@@ -17,113 +17,96 @@ import java.util.ArrayList;
 import java.util.List;
 
 class StaggeredHomeAdapter extends
-		RecyclerView.Adapter<StaggeredHomeAdapter.MyViewHolder>
-{
+        RecyclerView.Adapter<StaggeredHomeAdapter.MyViewHolder> {
 
-	private List<String> mDatas;
-	private LayoutInflater mInflater;
+    private List<String> mDatas;
+    private LayoutInflater mInflater;
 
-	private List<Integer> mHeights;
+    private List<Integer> mHeights;
 
-	public interface OnItemClickLitener
-	{
-		void onItemClick(View view, int position);
+    public interface OnItemClickLitener {
+        void onItemClick(View view, int position);
 
-		void onItemLongClick(View view, int position);
-	}
+        void onItemLongClick(View view, int position);
+    }
 
-	private OnItemClickLitener mOnItemClickLitener;
+    private OnItemClickLitener mOnItemClickLitener;
 
-	public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener)
-	{
-		this.mOnItemClickLitener = mOnItemClickLitener;
-	}
+    public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener) {
+        this.mOnItemClickLitener = mOnItemClickLitener;
+    }
 
-	public StaggeredHomeAdapter(Context context, List<String> datas)
-	{
-		mInflater = LayoutInflater.from(context);
-		mDatas = datas;
+    public StaggeredHomeAdapter(Context context, List<String> datas) {
+        mInflater = LayoutInflater.from(context);
+        mDatas = datas;
 
-		mHeights = new ArrayList<Integer>();
-		for (int i = 0; i < mDatas.size(); i++)
-		{
-			mHeights.add( (int) (100 + Math.random() * 300));
-		}
-	}
+        mHeights = new ArrayList<Integer>();
+        for (int i = 0; i < mDatas.size(); i++) {
+            mHeights.add((int) (100 + Math.random() * 300));
+        }
+    }
 
-	@Override
-	public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-	{
-		MyViewHolder holder = new MyViewHolder(mInflater.inflate(
-				R.layout.item_staggered_home, parent, false));
-		return holder;
-	}
+    @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        MyViewHolder holder = new MyViewHolder(mInflater.inflate(
+                R.layout.item_staggered_home, parent, false));
+        return holder;
+    }
 
-	@Override
-	public void onBindViewHolder(final MyViewHolder holder, final int position)
-	{
-		LayoutParams lp = holder.tv.getLayoutParams();
-		lp.height = mHeights.get(position);
-		
-		holder.tv.setLayoutParams(lp);
-		holder.tv.setText(mDatas.get(position));
+    @Override
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
+        LayoutParams lp = holder.tv.getLayoutParams();
+        lp.height = mHeights.get(position);
 
-		// 如果设置了回调，则设置点击事件
-		if (mOnItemClickLitener != null)
-		{
-			holder.itemView.setOnClickListener(new OnClickListener()
-			{
-				@Override
-				public void onClick(View v)
-				{
-					int pos = holder.getLayoutPosition();
-					mOnItemClickLitener.onItemClick(holder.itemView, pos);
-				}
-			});
+        holder.tv.setLayoutParams(lp);
+        holder.tv.setText(mDatas.get(position));
 
-			holder.itemView.setOnLongClickListener(new OnLongClickListener()
-			{
-				@Override
-				public boolean onLongClick(View v)
-				{
-					int pos = holder.getLayoutPosition();
-					mOnItemClickLitener.onItemLongClick(holder.itemView, pos);
-					removeData(pos);
-					return false;
-				}
-			});
-		}
-	}
+        // 如果设置了回调，则设置点击事件
+        if (mOnItemClickLitener != null) {
+            holder.itemView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = holder.getLayoutPosition();
+                    mOnItemClickLitener.onItemClick(holder.itemView, pos);
+                }
+            });
 
-	@Override
-	public int getItemCount()
-	{
-		return mDatas.size();
-	}
+            holder.itemView.setOnLongClickListener(new OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int pos = holder.getLayoutPosition();
+                    mOnItemClickLitener.onItemLongClick(holder.itemView, pos);
+                    removeData(pos);
+                    return false;
+                }
+            });
+        }
+    }
 
-	public void addData(int position)
-	{
-		mDatas.add(position, "Insert One");
-		mHeights.add( (int) (100 + Math.random() * 300));
-		notifyItemInserted(position);
-	}
+    @Override
+    public int getItemCount() {
+        return mDatas.size();
+    }
 
-	public void removeData(int position)
-	{
-		mDatas.remove(position);
-		notifyItemRemoved(position);
-	}
+    public void addData(int position) {
+        mDatas.add(position, "Insert One");
+        mHeights.add((int) (100 + Math.random() * 300));
+        notifyItemInserted(position);
+    }
 
-	class MyViewHolder extends ViewHolder
-	{
+    public void removeData(int position) {
+        mDatas.remove(position);
+        notifyItemRemoved(position);
+    }
 
-		TextView tv;
+    class MyViewHolder extends ViewHolder {
 
-		public MyViewHolder(View view)
-		{
-			super(view);
-			tv = (TextView) view.findViewById(R.id.id_num);
+        TextView tv;
 
-		}
-	}
+        public MyViewHolder(View view) {
+            super(view);
+            tv = (TextView) view.findViewById(R.id.id_num);
+
+        }
+    }
 }

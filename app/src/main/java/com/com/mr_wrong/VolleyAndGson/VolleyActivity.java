@@ -49,7 +49,6 @@ public class VolleyActivity extends Activity {
         StringRequest request = new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
-Log.e()
             }
         }, new Response.ErrorListener() {
             @Override
@@ -63,7 +62,7 @@ Log.e()
                     @Override
                     public void onResponse(Weather weather) {
                         WeatherInfo weatherInfo = weather.getWeatherinfo();
-                        mTextView.setText("城市:" + weatherInfo.getCity() +"  天气:"+weatherInfo.getWeather1()+ "   温度:" + weatherInfo.getTemp1() +
+                        mTextView.setText("城市:" + weatherInfo.getCity() + "  天气:" + weatherInfo.getWeather1() + "   温度:" + weatherInfo.getTemp1() +
                                 "  发布时间:" + weatherInfo.getDate_y() + " 天气状况：" + weatherInfo.getIndex() +
                                 "  穿衣意见：" + weatherInfo.getIndex_d());
 

@@ -17,6 +17,7 @@ import com.com.mr_wrong.Scroller.ScrollActivity;
 import com.com.mr_wrong.SlideView.SlideActivity;
 import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
 import com.com.mr_wrong.Palette.PaletteActivity;
+import com.com.mr_wrong.RecyclerView.MyRecycleViewActivity;
 /**
  * Created by Mr_Wrong on 15/7/5.
  */
@@ -36,7 +37,8 @@ public enum AllActivitys {
     GFMainActivity(GFMainActivity.class),
     AnimActivity(AnimActivity.class),
     CustomViewActivity(CustomViewActivity.class),
-    PaletteActivity(PaletteActivity.class);
+    PaletteActivity(PaletteActivity.class),
+    MyRecycleViewActivity(MyRecycleViewActivity.class);
 
 
 

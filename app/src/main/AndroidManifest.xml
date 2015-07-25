@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -45,8 +46,11 @@
             android:theme="@style/Translucent"></activity>
         <activity android:name="com.com.mr_wrong.GaoFeng.GFMainActivity"></activity>
         <activity android:name="com.com.mr_wrong.Property_Animation.AnimActivity"></activity>
-    <activity android:name="com.com.mr_wrong.CustomView.CustomViewActivity"></activity>
+        <activity android:name="com.com.mr_wrong.CustomView.CustomViewActivity"></activity>
         <activity android:name="com.com.mr_wrong.Palette.PaletteActivity"></activity>
+        <activity android:name="com.com.mr_wrong.RecyclerView.MyRecycleViewActivity"></activity>
+
+
     </application>
 
 </manifest>
