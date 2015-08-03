@@ -20,10 +20,14 @@ import android.widget.TextView;
 
 import com.example.mr_wrong.androidstudioproject.R;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Mr_Wrong on 15/7/10.
  */
 public class PaletteActivity extends Activity {
+
+
     private static int RESULT_LOAD_IMAGE = 1;
 
     private Bitmap mBitmap;
@@ -32,11 +36,13 @@ public class PaletteActivity extends Activity {
     private TextView mView1, mView2, mView3, mView4, mView5, mView6;
 
 
-    RadioButton mrb_1,mrb_2;
+    RadioButton mrb_1, mrb_2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.palette);
+        ButterKnife.inject(this);
 
         initviews();
 
@@ -46,7 +52,7 @@ public class PaletteActivity extends Activity {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i){
+                switch (i) {
                     case 0:
                         mrb_1.setTextColor(Color.BLUE);
                         break;
@@ -56,7 +62,6 @@ public class PaletteActivity extends Activity {
                 }
             }
         });
-
 
 
     }
@@ -75,7 +80,7 @@ public class PaletteActivity extends Activity {
             public void onClick(View view) {
                 Intent i = new Intent(
                         Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
 

@@ -9,15 +9,18 @@ import com.com.mr_wrong.CustomView.CustomViewActivity;
 import com.com.mr_wrong.GaoFeng.GFMainActivity;
 import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
 import com.com.mr_wrong.NumberProgressBar.NumberProgressBarActivity;
+import com.com.mr_wrong.Palette.PaletteActivity;
 import com.com.mr_wrong.PopButton.PopButtonActivity;
 import com.com.mr_wrong.Property_Animation.AnimActivity;
+import com.com.mr_wrong.RecyclerView.MyRecycleViewActivity;
 import com.com.mr_wrong.RecyclerView.RecyclerViewActivity;
 import com.com.mr_wrong.RecyclerViewItemAnimator.ItemAnimatorActivity;
 import com.com.mr_wrong.Scroller.ScrollActivity;
 import com.com.mr_wrong.SlideView.SlideActivity;
 import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
-import com.com.mr_wrong.Palette.PaletteActivity;
-import com.com.mr_wrong.RecyclerView.MyRecycleViewActivity;
+import com.com.mr_wrong.test.KotlinTest;
+import com.com.mr_wrong.test.SecondKotlinActivity;
+
 /**
  * Created by Mr_Wrong on 15/7/5.
  */
@@ -38,8 +41,9 @@ public enum AllActivitys {
     AnimActivity(AnimActivity.class),
     CustomViewActivity(CustomViewActivity.class),
     PaletteActivity(PaletteActivity.class),
-    MyRecycleViewActivity(MyRecycleViewActivity.class);
-
+    MyRecycleViewActivity(MyRecycleViewActivity.class),
+    KotlinTest(KotlinTest.class),
+    SecondKotlinActivity(SecondKotlinActivity.class);
 
 
     private Class activityClazz;

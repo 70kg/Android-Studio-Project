@@ -50,7 +50,8 @@
         <activity android:name="com.com.mr_wrong.Palette.PaletteActivity"></activity>
         <activity android:name="com.com.mr_wrong.RecyclerView.MyRecycleViewActivity"></activity>
 
-
+        <activity android:name="com.com.mr_wrong.test.KotlinTest"></activity>
+        <activity android:name="com.com.mr_wrong.test.SecondKotlinActivity"></activity>
     </application>
 
 </manifest>
