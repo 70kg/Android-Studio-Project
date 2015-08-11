@@ -41,7 +41,7 @@ public class KotlinTest : Activity() {
             intent.putExtra("name", namestring)
             intent.putExtra("age",agestring)
 
-            intent.set
+
 
             startActivity(intent)
             Toast.makeText(this,"这是使用Kotlin的跳转",Toast.LENGTH_SHORT).show();

@@ -3,4 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="header_height">250dp</dimen>
+
+    <dimen name="cascade_horizontal_spacing">10dp</dimen>
+    <dimen name="cascade_vertical_spacing">10dp</dimen>
+
 </resources>

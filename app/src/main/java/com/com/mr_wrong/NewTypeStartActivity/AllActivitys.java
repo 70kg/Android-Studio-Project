@@ -20,6 +20,7 @@ import com.com.mr_wrong.SlideView.SlideActivity;
 import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
 import com.com.mr_wrong.test.KotlinTest;
 import com.com.mr_wrong.test.SecondKotlinActivity;
+import com.com.mr_wrong.Drawable.DrawableActivity;
 
 /**
  * Created by Mr_Wrong on 15/7/5.
@@ -43,7 +44,8 @@ public enum AllActivitys {
     PaletteActivity(PaletteActivity.class),
     MyRecycleViewActivity(MyRecycleViewActivity.class),
     KotlinTest(KotlinTest.class),
-    SecondKotlinActivity(SecondKotlinActivity.class);
+    SecondKotlinActivity(SecondKotlinActivity.class),
+    DrawableActivity(DrawableActivity.class);
 
 
     private Class activityClazz;
@@ -51,6 +53,7 @@ public enum AllActivitys {
     private AllActivitys(Class clazz) {
         activityClazz = clazz;
     }
+
     public Activity getActivity() {
         try {
             return (Activity) activityClazz.newInstance();
