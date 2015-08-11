@@ -5,12 +5,21 @@
     android:orientation="vertical">
 
     <EditText
+<<<<<<< HEAD
         style="@style/EditTextStyle"
         android:id="@+id/et_name"
         android:hint="输入姓名" />
 
     <EditText
         style="@style/EditTextStyle"
+=======
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入姓名" />
+
+    <EditText
+>>>>>>> origin/master
         android:id="@+id/et_age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

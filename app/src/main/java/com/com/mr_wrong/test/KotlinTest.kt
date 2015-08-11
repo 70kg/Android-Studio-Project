@@ -32,8 +32,15 @@ public class KotlinTest : Activity() {
 
         var intent = Intent(this, SecondKotlinActivity().javaClass)
 
+<<<<<<< HEAD
         btn_push.setOnClickListener({
             var namestring = person.name;
+=======
+
+
+        btn_push.setOnClickListener({
+            var namestring = et_name.getText().toString()
+>>>>>>> origin/master
             var agestring = et_age.getText().toString()
 
             LogUtils.e(namestring)
@@ -41,10 +48,15 @@ public class KotlinTest : Activity() {
             intent.putExtra("name", namestring)
             intent.putExtra("age",agestring)
 
+<<<<<<< HEAD
 
 
             startActivity(intent)
             Toast.makeText(this,"这是使用Kotlin的跳转",Toast.LENGTH_SHORT).show();
+=======
+            startActivity(intent)
+            Toast.makeText(this,"zhe",Toast.LENGTH_SHORT).show();
+>>>>>>> origin/master
         })
     }
 
@@ -52,9 +64,12 @@ public class KotlinTest : Activity() {
         var name: String = "";
         var age: String = "20";
         var address: String? = "";//可以为空
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> origin/master
     }
 
 }
