@@ -19,12 +19,8 @@ import com.com.mr_wrong.Scroller.ScrollActivity;
 import com.com.mr_wrong.SlideView.SlideActivity;
 import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
 import com.com.mr_wrong.test.KotlinTest;
-import com.com.mr_wrong.test.SecondKotlinActivity;
-<<<<<<< HEAD
-import com.com.mr_wrong.Drawable.DrawableActivity;
-=======
->>>>>>> origin/master
-
+import com.com.mr_wrong.HandleImageLoader.HandleImageLoader;
+import com.com.mr_wrong.HandleImageLoader.LoadImageMainActivity;
 /**
  * Created by Mr_Wrong on 15/7/5.
  */
@@ -47,12 +43,8 @@ public enum AllActivitys {
     PaletteActivity(PaletteActivity.class),
     MyRecycleViewActivity(MyRecycleViewActivity.class),
     KotlinTest(KotlinTest.class),
-<<<<<<< HEAD
-    SecondKotlinActivity(SecondKotlinActivity.class),
-    DrawableActivity(DrawableActivity.class);
-=======
-    SecondKotlinActivity(SecondKotlinActivity.class);
->>>>>>> origin/master
+    HandleImageLoader(HandleImageLoader.class),
+    LoadImageMainActivity(LoadImageMainActivity.class);
 
 
     private Class activityClazz;

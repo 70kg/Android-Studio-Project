@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
-import com.Utils.LogUtils;
 import com.example.mr_wrong.androidstudioproject.R;
 
 /**
@@ -75,7 +74,7 @@ public class RockView extends View {
                             isBiger = true;
                         }
                     }
-                    LogUtils.e(mRadius);
+                   // LogUtils.e(mRadius);
                     postInvalidate();
                     try {
                         mSpeed = 30;

@@ -5,28 +5,15 @@
     android:orientation="vertical">
 
     <EditText
-<<<<<<< HEAD
-        style="@style/EditTextStyle"
         android:id="@+id/et_name"
+        style="@style/EditTextStyle"
         android:hint="输入姓名" />
 
-    <EditText
-        style="@style/EditTextStyle"
-=======
-        android:id="@+id/et_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="输入姓名" />
+    <EditText style="@style/EditTextStyle" />
 
-    <EditText
->>>>>>> origin/master
-        android:id="@+id/et_age"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="输入你年龄" />
     <Button
+        android:id="@+id/btn_push"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_push"
-        android:text="跳转"/>
+        android:text="跳转" />
 </LinearLayout>
