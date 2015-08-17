@@ -20,7 +20,7 @@ import com.com.mr_wrong.SlideView.SlideActivity;
 import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
 import com.com.mr_wrong.test.KotlinTest;
 import com.com.mr_wrong.HandleImageLoader.HandleImageLoader;
-import com.com.mr_wrong.HandleImageLoader.LoadImageMainActivity;
+
 /**
  * Created by Mr_Wrong on 15/7/5.
  */

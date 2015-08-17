@@ -3,13 +3,15 @@ package com.com.mr_wrong.CustomView;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.Utils.LogUtils;
 import com.example.mr_wrong.androidstudioproject.R;
 
 /**
@@ -20,18 +22,11 @@ public class CustomLayout extends RelativeLayout {
     private EditText mEditText;
     private TextView mTextLeft, mTextRight;
 
-    private int rightimage, leftimage, editstle;
+    private int rightimage, leftimage;
 
-
-    private boolean isshowlefttext, isIsshowleftimage,
-            isIsshowrighttext, isIsshowrightimage, isedit;
+    private int lefttextwidth;
 
     private String lefttext, edittext, hint, righttext;
-
-
-    private onLayoutClick mOnLayoutClick;
-    private onAllClick mAllClick;
-    private onRightTextClick mOnRightTextClick;
 
     public CustomLayout(Context context) {
         this(context, null);
@@ -58,14 +53,12 @@ public class CustomLayout extends RelativeLayout {
         TypedArray array = context.obtainStyledAttributes(attrs,
                 R.styleable.CustomLayout);
 
-        rightimage = array.getResourceId(R.styleable.CustomLayout_rightimage, R.drawable.right1);
+        rightimage = array.getResourceId(R.styleable.CustomLayout_rightimage, 0);
         leftimage = array.getResourceId(R.styleable.CustomLayout_leftimage, 0);
-        editstle = array.getResourceId(R.styleable.CustomLayout_editstyle, 0);
 
-        isshowlefttext = array.getBoolean(R.styleable.CustomLayout_isshowlefttext, true);
-        isIsshowrightimage = array.getBoolean(R.styleable.CustomLayout_isshowrightimage, true);
-        isedit = array.getBoolean(R.styleable.CustomLayout_iseditable, false);
         lefttext = array.getString(R.styleable.CustomLayout_lefttext);
+        lefttextwidth = array.getDimensionPixelSize(R.styleable.CustomLayout_lefttextwidth, (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_PX, 60, getResources().getDisplayMetrics()));
 
         righttext = array.getString(R.styleable.CustomLayout_righttext);
         hint = array.getString(R.styleable.CustomLayout_hint);
@@ -82,63 +75,34 @@ public class CustomLayout extends RelativeLayout {
         }
 
 
-        if (isshowlefttext) {
-            mTextLeft.setVisibility(VISIBLE);
-            mTextLeft.setText(lefttext);
+        mTextLeft.setText(lefttext);
+
+        LogUtils.e(lefttextwidth);
+
+        if(lefttextwidth!=(int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_PX, 60, getResources().getDisplayMetrics())){
+            ViewGroup.LayoutParams lp = mTextLeft.getLayoutParams();
+            lp.width = lefttextwidth;
+            mTextLeft.setLayoutParams(lp);
         }
-        if (righttext != null) {
-            mTextRight.setVisibility(VISIBLE);
-            mTextRight.setText(righttext);
-            mTextRight.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (mOnRightTextClick != null) {
-                        mOnRightTextClick.onRightTextClick();
-                    }
-                    if (mAllClick != null) {
-                        mAllClick.onRightTextClick();
-                    }
-                }
-            });
-        }
+
+
         if (rightimage != 0) {
             mImageRight.setVisibility(VISIBLE);
             mImageRight.setImageResource(rightimage);
         }
 
-        mEditText.setBackgroundColor(editstle);
+
         mEditText.setText(edittext);
-        if (isedit) {
+        mEditText.setEnabled(false);
+        if (hint != null) {
             mEditText.setHint(hint);
-        } else {
-            mEditText.setEnabled(false);
+            mEditText.setEnabled(true);
         }
 
-        this.setOnClickListener(new OnClickListener() {//整个layout的点击事件
-            @Override
-            public void onClick(View view) {
-                if (mOnLayoutClick != null) {
-                    mOnLayoutClick.onLayoutClick();
-                }
-                if (mAllClick != null) {
-                    mAllClick.onLayoutClick();
-                }
-            }
-        });
-
-
-    }
-
-    public void setonLayoutClick(onLayoutClick onLayoutClick) {
-        this.mOnLayoutClick = onLayoutClick;
-    }
-
-    public void setonAllClick(onAllClick allClick) {
-        this.mAllClick = allClick;
-    }
-
-    public void setonRightTextClick(onRightTextClick rightTextClick) {
-        this.mOnRightTextClick = rightTextClick;
+        if (righttext != null) {
+            mTextRight.setText(righttext);
+        }
     }
 
     public ImageView getImageLeft() {
@@ -180,16 +144,4 @@ public class CustomLayout extends RelativeLayout {
     public void setTextRight(TextView mTextRight) {
         this.mTextRight = mTextRight;
     }
-}
-
-interface onLayoutClick {
-    void onLayoutClick();
-}
-
-interface onRightTextClick {
-    void onRightTextClick();
-}
-
-interface onAllClick extends onLayoutClick {
-    void onRightTextClick();
 }

@@ -48,4 +48,60 @@
         <item name="android:background">@color/white</item>
         <item name="android:textCursorDrawable">@null</item>
     </style>
+
+    <style name="LeftImageStyle">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="LeftTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_toRightOf">@+id/iv_left</item>
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="EditTextStyle1" parent="EditTextStyle">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_toLeftOf">@+id/tv_right</item>
+        <item name="android:layout_toRightOf">@+id/tv_left</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">#666666</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="RightImageStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+
+    <style name="RightImageStyle1">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_toLeftOf">@+id/iv_right</item>
+    </style>
+
+    <style name="LayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="CustomLayoutStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">1dp</item>
+    </style>
 </resources>

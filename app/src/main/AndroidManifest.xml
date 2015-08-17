@@ -54,7 +54,6 @@
         <activity android:name="com.com.mr_wrong.test.KotlinTest"></activity>
         <activity android:name="com.com.mr_wrong.test.SecondKotlinActivity"></activity>
         <activity android:name="com.com.mr_wrong.HandleImageLoader.HandleImageLoader"></activity>
-    <activity android:name="com.com.mr_wrong.HandleImageLoader.LoadImageMainActivity"></activity>
     </application>
 
 </manifest>

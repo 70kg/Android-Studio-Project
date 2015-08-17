@@ -110,8 +110,6 @@
 
     <declare-styleable name="CustomLayout">
 
-        <attr name="isshowlefttext" format="boolean"/>
-        <attr name="iseditable" format="boolean"/>
         <attr name="isshowrightimage" format="boolean"/>
         <attr name="lefttext" format="string"/>
         <attr name="leftimage" format="reference"/>
@@ -119,7 +117,7 @@
         <attr name="edittext" format="string"/>
         <attr name="righttext" format="string"/>
         <attr name="rightimage" format="reference"/>
-        <attr name="editstyle" format="reference"/>
+        <attr name="lefttextwidth" format="dimension"/>
 
     </declare-styleable>
 

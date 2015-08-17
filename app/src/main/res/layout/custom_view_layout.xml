@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <!--<com.com.mr_wrong.CustomJobView.ArcView-->
     <!--android:layout_width="100dp"-->
@@ -30,7 +31,34 @@
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent" />-->
 
-    <com.com.mr_wrong.CustomView.Canvas
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</RelativeLayout>
+    <!--<com.com.mr_wrong.CustomView.Canvas-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent" />-->
+    <com.com.mr_wrong.CustomView.CustomLayout
+        style="@style/CustomLayoutStyle"
+        android:layout_marginTop="20dp"
+        app:edittext="这是不可编辑文字"
+        app:leftimage="@drawable/testimage"
+        app:lefttext="这是一"
+        app:lefttextwidth="40dp"
+        app:righttext="右边的" />
+
+    <com.com.mr_wrong.CustomView.CustomLayout
+        style="@style/CustomLayoutStyle"
+        app:edittext="这是可编辑文字"
+        app:hint="hint"
+        app:lefttext="这是二"
+        app:lefttextwidth="50dp"
+        app:righttext="右边的" />
+
+    <com.com.mr_wrong.CustomView.CustomLayout
+        android:id="@+id/custom_1"
+        style="@style/CustomLayoutStyle"
+        app:edittext="这是不可编辑文字"
+        app:isshowrightimage="false"
+        app:leftimage="@drawable/testimage"
+        app:lefttext="这是三"
+        app:lefttextwidth="70dp"
+        app:rightimage="@drawable/right1"
+        app:righttext="右边的" />
+</LinearLayout>

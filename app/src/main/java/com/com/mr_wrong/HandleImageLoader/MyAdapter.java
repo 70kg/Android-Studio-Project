@@ -25,8 +25,8 @@ public class MyAdapter extends BaseAdapter {
     public MyAdapter(Context context, List<String> mData, String dirPath)
     {
         this.mContext = context;
-        this.mData = mData;
-        this.mDirPath = dirPath;
+        this.mData = mData;//图片路径
+        this.mDirPath = dirPath;//文件夹路径
         mInflater = LayoutInflater.from(mContext);
 
         mImageLoader = ImageLoader.getInstance(3 , ImageLoader.Type.LIFO);
@@ -66,8 +66,8 @@ public class MyAdapter extends BaseAdapter {
         {
             holder = (ViewHolder) convertView.getTag();
         }
-//        holder.mImageView
-//                .setImageResource(R.drawable.testimage);
+        holder.mImageView
+                .setImageResource(R.drawable.testimage);
         //使用Imageloader去加载图片
         mImageLoader.loadImage(mDirPath + "/" + mData.get(position),
                 holder.mImageView);
