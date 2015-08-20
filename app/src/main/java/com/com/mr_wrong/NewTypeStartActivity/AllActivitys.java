@@ -1,12 +1,14 @@
 package com.com.mr_wrong.NewTypeStartActivity;
 
 import android.app.Activity;
+import android.util.SparseArray;
 
 import com.com.mr_wrong.Actionbar.ActionbarActivity;
 import com.com.mr_wrong.AsyncTask.AsyncTaskActivity;
 import com.com.mr_wrong.Bezier.BezierActivity;
 import com.com.mr_wrong.CustomView.CustomViewActivity;
 import com.com.mr_wrong.GaoFeng.GFMainActivity;
+import com.com.mr_wrong.HandleImageLoader.HandleImageLoader;
 import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
 import com.com.mr_wrong.NumberProgressBar.NumberProgressBarActivity;
 import com.com.mr_wrong.Palette.PaletteActivity;
@@ -19,7 +21,6 @@ import com.com.mr_wrong.Scroller.ScrollActivity;
 import com.com.mr_wrong.SlideView.SlideActivity;
 import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
 import com.com.mr_wrong.test.KotlinTest;
-import com.com.mr_wrong.HandleImageLoader.HandleImageLoader;
 
 /**
  * Created by Mr_Wrong on 15/7/5.
@@ -43,8 +44,7 @@ public enum AllActivitys {
     PaletteActivity(PaletteActivity.class),
     MyRecycleViewActivity(MyRecycleViewActivity.class),
     KotlinTest(KotlinTest.class),
-    HandleImageLoader(HandleImageLoader.class),
-    LoadImageMainActivity(LoadImageMainActivity.class);
+    HandleImageLoader(HandleImageLoader.class);
 
 
     private Class activityClazz;
@@ -54,10 +54,12 @@ public enum AllActivitys {
     }
 
     public Activity getActivity() {
+
         try {
             return (Activity) activityClazz.newInstance();
         } catch (Exception e) {
             throw new Error("Can not init Activity instance");
         }
+
     }
 }

@@ -21,6 +21,7 @@ public class CustomViewActivity extends Activity {
 
         TextView left = customLayout.getTextLeft();
 
+        
         left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
