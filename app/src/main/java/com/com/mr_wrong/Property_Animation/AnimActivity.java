@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
+import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.TypeEvaluator;
@@ -11,15 +12,21 @@ import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.PointF;
+import android.os.Bundle;
 import android.view.View;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
+import com.Utils.LogUtils;
 import com.example.mr_wrong.androidstudioproject.R;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
@@ -46,6 +53,18 @@ public class AnimActivity extends BaseActivity {
     Button bt6;
     @InjectView(R.id.bt_7)
     Button bt7;
+    @InjectView(R.id.seekBar)
+    SeekBar seekBar;
+    @InjectView(R.id.sb_red)
+    SeekBar sb_Red;
+    @InjectView(R.id.sb_green)
+    SeekBar sb_Green;
+    @InjectView(R.id.sb_blue)
+    SeekBar sb_Blue;
+    @InjectView(R.id.sb_alpha)
+    SeekBar sb_Alpha;
+    @InjectView(R.id.tv_color)
+    TextView tv_Color;
 
     @OnClick(R.id.bt_ObjectAnimator)
     public void sayHi(Button button) {
@@ -86,7 +105,7 @@ public class AnimActivity extends BaseActivity {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 mTestImage.setTranslationX((float) valueAnimator.getAnimatedValue());
-               // valueAnimator.seta
+                // valueAnimator.seta
             }
         });
         //不想实现全部方法  可以使用animatorlistneradapter
@@ -129,6 +148,10 @@ public class AnimActivity extends BaseActivity {
         ValueAnimator valueAnimator = new ValueAnimator();
         valueAnimator.setDuration(1000);
         valueAnimator.setObjectValues(new PointF(0, 0));
+        LinearInterpolator interpolator = new LinearInterpolator();
+
+        interpolator.getInterpolation(0.3f);
+
         valueAnimator.setInterpolator(new LinearInterpolator());
         valueAnimator.setEvaluator(new TypeEvaluator<PointF>() {
             @Override
@@ -149,6 +172,8 @@ public class AnimActivity extends BaseActivity {
                 mTestImage.setY(p.y);
             }
         });
+
+
     }
 
     /**
@@ -210,6 +235,7 @@ public class AnimActivity extends BaseActivity {
         mTestImage.setImageBitmap(createViewBitmap(btObjectAnimator));
 
     }
+
     public Bitmap createViewBitmap(View v) {
         Bitmap bitmap = Bitmap.createBitmap(v.getWidth(), v.getHeight(),
                 Bitmap.Config.ARGB_8888);
@@ -217,10 +243,84 @@ public class AnimActivity extends BaseActivity {
         v.draw(canvas);
         return bitmap;
     }
+
     @Override
     public void setContentView() {
         setContentView(R.layout.anim_layout);
     }
 
+    //转换为十六进制
+    private String toHexString(int color) {
+        return Integer.toHexString(color);
+    }
 
+
+    class SeekBarChangeListener implements SeekBar.OnSeekBarChangeListener {
+
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            switch (seekBar.getId()) {
+                case R.id.seekBar:
+                    ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+                    int colorstart = Color.parseColor("#15d68f");
+                    int colorend = Color.parseColor("#f2186b");
+                    float c = (float) progress / (float) 100;
+                    int color = (Integer) argbEvaluator.evaluate(c, colorstart, colorend);
+
+                    LogUtils.i("#" + toHexString(Color.red(color))
+                            + toHexString(Color.green(color)) +
+                            toHexString(Color.blue(color)));
+
+                    bt2.setBackgroundColor(color);
+                    break;
+                case R.id.sb_blue:
+                    color_blue = seekBar.getProgress();
+                    break;
+                case R.id.sb_green:
+                    color_green = seekBar.getProgress();
+                    break;
+                case R.id.sb_red:
+                    color_red = seekBar.getProgress();
+                    break;
+                case R.id.sb_alpha:
+                    color_alpha = seekBar.getProgress();
+                    break;
+            }
+            tv_Color.setText("#" + toHexString(color_red)
+                    + toHexString(color_green) +
+                    toHexString(color_blue));
+            int color1 = Color.argb(color_alpha, color_red, color_green, color_blue);
+            bt1.setBackgroundColor(color1);
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+
+        }
+    }
+
+    private int color_red = 128, color_blue = 128, color_green = 128, color_alpha = 255;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.inject(this);
+        SeekBarChangeListener listener = new SeekBarChangeListener();
+        seekBar.setOnSeekBarChangeListener(listener);
+        sb_Blue.setOnSeekBarChangeListener(listener);
+        sb_Green.setOnSeekBarChangeListener(listener);
+        sb_Red.setOnSeekBarChangeListener(listener);
+        sb_Alpha.setOnSeekBarChangeListener(listener);
+
+        tv_Color.setText("#" + toHexString(color_red)
+                + toHexString(color_green) +
+                toHexString(color_blue));
+        bt1.setBackgroundColor(Color.argb(255, 128, 128, 128));
+    }
 }

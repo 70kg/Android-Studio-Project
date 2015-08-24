@@ -18,4 +18,8 @@
     <color name="red">#FF0000</color>
     <color name="blue">#3991EA</color>
     <color name="hint_color">#9e9e9e</color>
+
+    <color name="transparentblue">#445CACEE</color>
+    <color name="light_blue">#5CACEE</color>
+
 </resources>

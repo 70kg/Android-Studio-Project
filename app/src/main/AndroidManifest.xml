@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -54,6 +54,10 @@
         <activity android:name="com.com.mr_wrong.test.KotlinTest"></activity>
         <activity android:name="com.com.mr_wrong.test.SecondKotlinActivity"></activity>
         <activity android:name="com.com.mr_wrong.HandleImageLoader.HandleImageLoader"></activity>
+        <activity
+            android:name="com.com.mr_wrong.PageIndicator.IndicatorMainActivity"
+            android:theme="@style/MyTheme"></activity>
+
     </application>
 
 </manifest>

@@ -1,7 +1,6 @@
 package com.com.mr_wrong.NewTypeStartActivity;
 
 import android.app.Activity;
-import android.util.SparseArray;
 
 import com.com.mr_wrong.Actionbar.ActionbarActivity;
 import com.com.mr_wrong.AsyncTask.AsyncTaskActivity;
@@ -11,6 +10,7 @@ import com.com.mr_wrong.GaoFeng.GFMainActivity;
 import com.com.mr_wrong.HandleImageLoader.HandleImageLoader;
 import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
 import com.com.mr_wrong.NumberProgressBar.NumberProgressBarActivity;
+import com.com.mr_wrong.PageIndicator.IndicatorMainActivity;
 import com.com.mr_wrong.Palette.PaletteActivity;
 import com.com.mr_wrong.PopButton.PopButtonActivity;
 import com.com.mr_wrong.Property_Animation.AnimActivity;
@@ -21,7 +21,6 @@ import com.com.mr_wrong.Scroller.ScrollActivity;
 import com.com.mr_wrong.SlideView.SlideActivity;
 import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
 import com.com.mr_wrong.test.KotlinTest;
-
 /**
  * Created by Mr_Wrong on 15/7/5.
  */
@@ -44,7 +43,8 @@ public enum AllActivitys {
     PaletteActivity(PaletteActivity.class),
     MyRecycleViewActivity(MyRecycleViewActivity.class),
     KotlinTest(KotlinTest.class),
-    HandleImageLoader(HandleImageLoader.class);
+    HandleImageLoader(HandleImageLoader.class),
+    IndicatorMainActivity(IndicatorMainActivity.class);
 
 
     private Class activityClazz;
