@@ -13,6 +13,10 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+<<<<<<< HEAD
+=======
+import java.net.MalformedURLException;
+>>>>>>> 36c8140... 异步加载图片，使用一级缓存
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,7 +31,11 @@ public class ImageLoaderWithCaches {
 
     public ImageLoaderWithCaches(ListView listview) {
         this.mListView = listview;
+<<<<<<< HEAD
         mTasks = new HashSet<ASyncDownloadImage>();
+=======
+        mTasks = new HashSet<>();
+>>>>>>> 36c8140... 异步加载图片，使用一级缓存
         int maxMemory = (int) Runtime.getRuntime().maxMemory();
         int cacheSize = maxMemory / 10;
         mMemoryCaches = new LruCache<String, Bitmap>(cacheSize) {
@@ -51,7 +59,11 @@ public class ImageLoaderWithCaches {
         return mMemoryCaches.get(url);
     }
 
+<<<<<<< HEAD
     public void addBitmapToMemoryCaches(String url, Bitmap bitmap) {
+=======
+    public void addBitmapToMemoryCaches(String url,Bitmap bitmap) {
+>>>>>>> 36c8140... 异步加载图片，使用一级缓存
         if (getBitmapFromMemoryCaches(url) == null) {
             mMemoryCaches.put(url, bitmap);
         }
@@ -59,7 +71,10 @@ public class ImageLoaderWithCaches {
 
     /**
      * 显示一个屏幕的图片
+<<<<<<< HEAD
      *
+=======
+>>>>>>> 36c8140... 异步加载图片，使用一级缓存
      * @param start
      * @param end
      */
@@ -80,7 +95,10 @@ public class ImageLoaderWithCaches {
 
     /**
      * 下载图片
+<<<<<<< HEAD
      *
+=======
+>>>>>>> 36c8140... 异步加载图片，使用一级缓存
      * @param urlString
      * @return
      */
