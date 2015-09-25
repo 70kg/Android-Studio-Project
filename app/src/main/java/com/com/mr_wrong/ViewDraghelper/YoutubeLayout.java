@@ -9,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.Utils.LogUtils;
+
 /**
  * Created by Mr_Wrong on 2015/5/24.
  */
@@ -39,6 +41,7 @@ public class YoutubeLayout extends ViewGroup {
 
     @Override
     protected void onFinishInflate() {
+        super.onFinishInflate();
         mHeaderView = getChildAt(0);
         mDescView = getChildAt(1);
     }
@@ -82,12 +85,12 @@ public class YoutubeLayout extends ViewGroup {
          */
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
+            LogUtils.e(yvel);
             int top = getPaddingTop();
-            if (yvel > 0 || (yvel == 0 && mDragOffset > 0.5f)) {
+            if (yvel > 0 || (yvel == 0 && mDragOffset > 0.5f)) {//向下
                 top += mDragRange;
             }
             mDragHelper.settleCapturedViewAt(releasedChild.getLeft(), top);
-
             invalidate();
         }
 
@@ -130,16 +133,6 @@ public class YoutubeLayout extends ViewGroup {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         final int action = MotionEventCompat.getActionMasked(ev);
-
-        if (action != MotionEvent.ACTION_DOWN) {
-            mDragHelper.cancel();
-            return super.onInterceptTouchEvent(ev);
-        }
-        if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
-            mDragHelper.cancel();
-            return false;
-        }
-
         final float x = ev.getX();
         final float y = ev.getY();
         boolean interceptTap = false;
@@ -157,6 +150,10 @@ public class YoutubeLayout extends ViewGroup {
                     mDragHelper.cancel();
                     return false;
                 }
+            case MotionEvent.ACTION_CANCEL:
+            case MotionEvent.ACTION_UP:
+                mDragHelper.cancel();
+                return false;
         }
         return mDragHelper.shouldInterceptTouchEvent(ev) || interceptTap;
     }
@@ -164,50 +161,7 @@ public class YoutubeLayout extends ViewGroup {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         mDragHelper.processTouchEvent(event);
-
-        final int action = event.getAction();
-        final float x = event.getX();
-        final float y = event.getY();
-
-        boolean isHeadViewUnder = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
-        switch (action & MotionEventCompat.ACTION_MASK) {
-            case MotionEvent.ACTION_DOWN:
-                mInitialMotionX = x;
-                mInitialMotionY = y;
-                break;
-            case MotionEvent.ACTION_UP:
-                final float dx = x - mInitialMotionX;
-                final float dy = y - mInitialMotionY;
-                final int slop = mDragHelper.getTouchSlop();
-                if (dx * dx + dy * dy < slop * slop && isHeadViewUnder) {
-                    if (mDragOffset == 0) {
-                        smoothSlideTo(1f);
-                    } else {
-                        smoothSlideTo(0f);
-                    }
-                }
-                break;
-        }
-        return isHeadViewUnder && isViewHit(mHeaderView, (int) x, (int) y);
-    }
-
-    /**
-     * x,y是否在当前View内
-     *
-     * @param view
-     * @param x
-     * @param y
-     * @return
-     */
-    private boolean isViewHit(View view, int x, int y) {
-        int[] viewLocation = new int[2];
-        view.getLocationOnScreen(viewLocation);
-        int[] parentLoaction = new int[2];
-        this.getLocationOnScreen(parentLoaction);
-        int screenX = parentLoaction[0] + x;
-        int screenY = parentLoaction[1] + y;
-        return screenX >= viewLocation[0] && screenX < viewLocation[0] + view.getWidth()
-                && screenY >= viewLocation[1] && screenY < viewLocation[1] + view.getHeight();
+        return true;
     }
 
     @Override

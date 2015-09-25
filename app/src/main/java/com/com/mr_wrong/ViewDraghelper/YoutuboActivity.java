@@ -19,7 +19,7 @@ public class YoutuboActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.youtube_layout);
         final TextView viewHeader = (TextView) findViewById(R.id.header);
-        final YoutubeLayout youtubeLayout = (YoutubeLayout) findViewById(R.id.dragLayout);
+        final MyYoutobelayout youtubeLayout = (MyYoutobelayout) findViewById(R.id.dragLayout);
         final ListView listView = (ListView) findViewById(R.id.listView);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -27,7 +27,7 @@ public class YoutuboActivity extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 viewHeader.setText(listView.getAdapter().getItem(i).toString());
                 youtubeLayout.setVisibility(View.VISIBLE);
-                youtubeLayout.maximize();
+               // youtubeLayout.maximize();
             }
         });
 

@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
-import android.graphics.Rect;
 import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -71,7 +70,7 @@ public class BezierView extends FrameLayout {
 
         tipImageView = new ImageView(getContext());
         tipImageView.setLayoutParams(params);
-        tipImageView.setImageResource(R.drawable.skin_tips_new);
+        //tipImageView.setImageResource(R.drawable.skin_tips_new);
 
         addView(exploredImageView);
         addView(tipImageView);
@@ -146,7 +145,7 @@ public class BezierView extends FrameLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+       /* if (event.getAction() == MotionEvent.ACTION_DOWN) {
             //判断是否触摸tipimageview
             Rect rect = new Rect();
             int[] location = new int[2];
@@ -163,7 +162,8 @@ public class BezierView extends FrameLayout {
             istouch = false;
             tipImageView.setX(startX - tipImageView.getWidth() / 2);
             tipImageView.setY(startX - tipImageView.getHeight() / 2);
-        }
+        }*/
+        istouch = true;
         invalidate();
 
         anchorX = (event.getX() + startX) / 2;

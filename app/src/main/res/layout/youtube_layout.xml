@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:tag="list" />
 
-    <com.com.mr_wrong.ViewDraghelper.YoutubeLayout
+    <com.com.mr_wrong.ViewDraghelper.MyYoutobelayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/dragLayout"
@@ -39,5 +39,5 @@
             android:layout_height="match_parent"
             android:background="#FF00FF" />
 
-    </com.com.mr_wrong.ViewDraghelper.YoutubeLayout>
+    </com.com.mr_wrong.ViewDraghelper.MyYoutobelayout>
 </FrameLayout>

@@ -57,7 +57,9 @@
         <activity
             android:name="com.com.mr_wrong.PageIndicator.IndicatorMainActivity"
             android:theme="@style/MyTheme"></activity>
-
+        <activity android:name="com.com.mr_wrong.Jsoup.JsoupActivity"></activity>
+        <activity android:name="com.com.mr_wrong.CustomAnimAndCamera.CustomAnimActivity"></activity>
+    <activity android:name="com.com.mr_wrong.Notification.NotificationActivity"></activity>
     </application>
 
 </manifest>

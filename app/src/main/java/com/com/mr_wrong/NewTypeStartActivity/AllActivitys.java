@@ -2,6 +2,7 @@ package com.com.mr_wrong.NewTypeStartActivity;
 
 import android.app.Activity;
 
+import com.com.mr_wrong.Jsoup.JsoupActivity;
 import com.com.mr_wrong.Actionbar.ActionbarActivity;
 import com.com.mr_wrong.AsyncTask.AsyncTaskActivity;
 import com.com.mr_wrong.Bezier.BezierActivity;
@@ -21,6 +22,9 @@ import com.com.mr_wrong.Scroller.ScrollActivity;
 import com.com.mr_wrong.SlideView.SlideActivity;
 import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
 import com.com.mr_wrong.test.KotlinTest;
+import com.com.mr_wrong.ViewDraghelper.YoutuboActivity;
+import com.com.mr_wrong.CustomAnimAndCamera.CustomAnimActivity;
+import com.com.mr_wrong.Notification.NotificationActivity;
 /**
  * Created by Mr_Wrong on 15/7/5.
  */
@@ -44,7 +48,11 @@ public enum AllActivitys {
     MyRecycleViewActivity(MyRecycleViewActivity.class),
     KotlinTest(KotlinTest.class),
     HandleImageLoader(HandleImageLoader.class),
-    IndicatorMainActivity(IndicatorMainActivity.class);
+    IndicatorMainActivity(IndicatorMainActivity.class),
+    YoutuboActivity(YoutuboActivity.class),
+    JsoupActivity(JsoupActivity.class),
+    CustomAnimActivity(CustomAnimActivity.class),
+    NotificationActivity(NotificationActivity.class);
 
 
     private Class activityClazz;

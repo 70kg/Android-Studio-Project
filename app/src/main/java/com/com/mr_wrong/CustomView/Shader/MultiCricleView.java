@@ -42,8 +42,7 @@ public class MultiCricleView extends View {
     /**
      * 初始化画笔
      *
-     * @param context
-     *            Fuck
+     * @param context Fuck
      */
     private void initPaint(Context context) {
         /*
@@ -153,17 +152,27 @@ public class MultiCricleView extends View {
         canvas.translate(ccX, ccY);
         canvas.rotate(-30);
 
+
+
         // 依次画：线-圈-线-圈
         canvas.drawLine(0, -largeCricleRadiu, 0, -lineLength * 2, strokePaint);
         canvas.drawCircle(0, -lineLength * 3, largeCricleRadiu, strokePaint);
-        canvas.drawText("Apple", 0, -lineLength * 3 - textOffsetY, textPaint);
+
+        Path path = new Path();
+        int x = 100;
+        //canvas.drawText("Apple", 0, -lineLength * 3 - textOffsetY, textPaint);
+        path.moveTo(-x * 1.73f, -lineLength * 3 - textOffsetY - x);
+        path.lineTo(x * 1.73f, -lineLength * 3 - textOffsetY + x);
+        canvas.drawTextOnPath("Apple", path, 0, 0, textPaint);
 
         canvas.drawLine(0, -largeCricleRadiu * 4, 0, -lineLength * 5, strokePaint);
         canvas.drawCircle(0, -lineLength * 6, largeCricleRadiu, strokePaint);
-        Path path = new Path();
-        path.moveTo(-1, -lineLength * 6 - textOffsetY+1.73f);
-        path.lineTo(1, -lineLength * 6 - textOffsetY - 1.73f);
-        canvas.drawTextOnPath("Orange",path,0,0,textPaint);
+
+
+        path.reset();
+        path.moveTo(-x * 1.73f, -lineLength * 6 - textOffsetY - x);
+        path.lineTo(x * 1.73f, -lineLength * 6 - textOffsetY + x);
+        canvas.drawTextOnPath("Orange", path, 0, 0, textPaint);
         //canvas.drawText("Orange", 0, -lineLength * 6 - textOffsetY, textPaint);
 
         // 释放画布

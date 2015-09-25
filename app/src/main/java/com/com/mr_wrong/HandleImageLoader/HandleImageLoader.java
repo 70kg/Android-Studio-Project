@@ -26,6 +26,7 @@ import java.util.List;
  */
 public class HandleImageLoader extends Activity {
     private ProgressDialog mProgressDialog;
+
     /**
      * 存储文件夹中的图片数量
      */
