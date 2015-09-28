@@ -25,7 +25,7 @@ public class Canvas extends View {
 
     private Region mRegiona, mRegionb;
 
-    public Canvas(Bitmap context) {
+    public Canvas(Context context) {
         this(context, null);
     }
 

@@ -58,8 +58,24 @@
             android:name="com.com.mr_wrong.PageIndicator.IndicatorMainActivity"
             android:theme="@style/MyTheme"></activity>
         <activity android:name="com.com.mr_wrong.Jsoup.JsoupActivity"></activity>
-        <activity android:name="com.com.mr_wrong.CustomAnimAndCamera.CustomAnimActivity"></activity>
-    <activity android:name="com.com.mr_wrong.Notification.NotificationActivity"></activity>
+        <activity android:name="com.com.mr_wrong.CustomAnimAndCamera.CustomAnimActivity">
+            <intent-filter>
+                <action android:name="info.70kg"></action>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.com.mr_wrong.Notification.NotificationActivity"
+            android:configChanges="screenSize|orientation"></activity>
+        <activity android:name="com.com.mr_wrong.AIDL.AIDLActivity"></activity>
+
+        <service android:name="com.com.mr_wrong.AIDL.CalcService"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="info.70kg.aidl.calc" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

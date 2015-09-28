@@ -5,11 +5,12 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.RemoteViews;
 
+import com.Utils.LogUtils;
 import com.example.mr_wrong.androidstudioproject.R;
 
 import butterknife.ButterKnife;
@@ -29,6 +30,7 @@ public class NotificationActivity extends Activity {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://70kg.info"));
         pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         ButterKnife.inject(this);
+        LogUtils.e("oncreate");
     }
 
     @OnClick(R.id.btn_notification_1)
@@ -77,6 +79,9 @@ public class NotificationActivity extends Activity {
         builder.setContentText("这是5.0").setFullScreenIntent(pendingIntent, true);
 
         send(3, builder);
+
+        Intent intent = new Intent("info.70kg");
+        startActivity(intent);
     }
 
 
@@ -95,31 +100,23 @@ public class NotificationActivity extends Activity {
         notificationManager.notify(id,
                 notification);
 
-        View view;
-        view.animate()
-                .alpha(0)
-                .y(300)
-                .setDuration(1000)
-                .withStartAction(new Runnable() {
-                    @Override
-                    public void run() {
-
-                    }
-                })
-                .withEndAction(new Runnable() {
-                    @Override
-                    public void run() {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-
-                            }
-                        });
-                    }
-                }).start();
 
     }
 
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        LogUtils.e("onConfigurationChanged");
+        super.onConfigurationChanged(newConfig);
+    }
+
+    /**
+     * 这是个在singletop（栈顶复用）和singletask(栈内复用)模式下去获取启动acitvity的信息
+     * @param intent
+     */
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+    }
 }
 

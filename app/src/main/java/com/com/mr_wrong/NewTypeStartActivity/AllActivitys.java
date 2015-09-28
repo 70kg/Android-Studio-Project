@@ -25,6 +25,7 @@ import com.com.mr_wrong.test.KotlinTest;
 import com.com.mr_wrong.ViewDraghelper.YoutuboActivity;
 import com.com.mr_wrong.CustomAnimAndCamera.CustomAnimActivity;
 import com.com.mr_wrong.Notification.NotificationActivity;
+import com.com.mr_wrong.AIDL.AIDLActivity;
 /**
  * Created by Mr_Wrong on 15/7/5.
  */
@@ -52,7 +53,8 @@ public enum AllActivitys {
     YoutuboActivity(YoutuboActivity.class),
     JsoupActivity(JsoupActivity.class),
     CustomAnimActivity(CustomAnimActivity.class),
-    NotificationActivity(NotificationActivity.class);
+    NotificationActivity(NotificationActivity.class),
+    AIDLActivity(AIDLActivity.class);
 
 
     private Class activityClazz;
