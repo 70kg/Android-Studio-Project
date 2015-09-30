@@ -26,6 +26,8 @@ import com.com.mr_wrong.ViewDraghelper.YoutuboActivity;
 import com.com.mr_wrong.CustomAnimAndCamera.CustomAnimActivity;
 import com.com.mr_wrong.Notification.NotificationActivity;
 import com.com.mr_wrong.AIDL.AIDLActivity;
+import com.com.mr_wrong.ContentProvider.ProviderActivity;
+import com.com.mr_wrong.Socket.TCPClientActivity;
 /**
  * Created by Mr_Wrong on 15/7/5.
  */
@@ -54,7 +56,9 @@ public enum AllActivitys {
     JsoupActivity(JsoupActivity.class),
     CustomAnimActivity(CustomAnimActivity.class),
     NotificationActivity(NotificationActivity.class),
-    AIDLActivity(AIDLActivity.class);
+    AIDLActivity(AIDLActivity.class),
+    ProviderActivity(ProviderActivity.class),
+    TCPClientActivity(TCPClientActivity.class);
 
 
     private Class activityClazz;

@@ -8,6 +8,9 @@ import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by Mr_Wrong on 2015/5/26.
  */
@@ -59,5 +62,8 @@ public class Utils {
         drawable.setBounds(0, 0, w, h);
         drawable.draw(canvas);
         return bitmap;
+    }
+    public static String getTime(){
+        return new SimpleDateFormat("(HH:mm:ss)").format(new Date(System.currentTimeMillis()));
     }
 }

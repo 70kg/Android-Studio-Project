@@ -35,14 +35,15 @@ public class CustomAnim extends Animation {
         Matrix matrix = t.getMatrix();
         mCamera.save();
 
-        mCamera.rotateX(-mRotateY * interpolatedTime);
+        mCamera.rotateY(-mRotateY * interpolatedTime);
+        //mCamera.translate(0,0,-mRotateY * interpolatedTime);
 
         mCamera.getMatrix(matrix);
 
         mCamera.restore();
 
         // 通过pre方法设置矩阵作用前的偏移量来改变旋转中心
-        matrix.preTranslate(mCenterWidth, mCenterHeight);
-        matrix.postTranslate(-mCenterWidth, -mCenterHeight);
+        matrix.preTranslate(-mCenterWidth, -mCenterHeight);
+        matrix.postTranslate(mCenterWidth, mCenterHeight);
     }
 }

@@ -18,7 +18,7 @@ public class CustomAnimActivity extends Activity {
     }
     public void btnAnim(View view) {
         CustomAnim customAnim = new CustomAnim();
-        customAnim.setRotateY(30);
+        customAnim.setRotateY(180);
         view.startAnimation(customAnim);
     }
 }
