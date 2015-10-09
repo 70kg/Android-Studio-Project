@@ -28,6 +28,7 @@ import com.com.mr_wrong.Notification.NotificationActivity;
 import com.com.mr_wrong.AIDL.AIDLActivity;
 import com.com.mr_wrong.ContentProvider.ProviderActivity;
 import com.com.mr_wrong.Socket.TCPClientActivity;
+import com.com.mr_wrong.HandlerThread.HandlerThreadActivity;
 /**
  * Created by Mr_Wrong on 15/7/5.
  */
@@ -58,7 +59,8 @@ public enum AllActivitys {
     NotificationActivity(NotificationActivity.class),
     AIDLActivity(AIDLActivity.class),
     ProviderActivity(ProviderActivity.class),
-    TCPClientActivity(TCPClientActivity.class);
+    TCPClientActivity(TCPClientActivity.class),
+    HandlerThreadActivity(HandlerThreadActivity.class);
 
 
     private Class activityClazz;

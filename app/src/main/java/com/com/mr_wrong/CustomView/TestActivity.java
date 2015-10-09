@@ -1,10 +1,14 @@
 package com.com.mr_wrong.CustomView;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -22,7 +26,6 @@ public class TestActivity extends Activity {
     private ImageView mHeadImg;
 
     private TableLayout mMainLayout;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,21 @@ public class TestActivity extends Activity {
         initView();
 
         showTable();
+
+        WindowManager mWindowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams layoutParams =
+                new WindowManager.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT,
+                        0, 0, PixelFormat.TRANSPARENT);
+        layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL |
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
+                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
+        layoutParams.gravity = Gravity.LEFT | Gravity.TOP;
+        layoutParams.x = 100;
+        layoutParams.y = 100;
+        mWindowManager.addView(mHeadImg, layoutParams);
+
+
+
     }
 
     protected void initView() {

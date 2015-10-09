@@ -90,6 +90,7 @@
 
     <service android:name="com.com.mr_wrong.Socket.TCPServerService"></service>
     <activity android:name="com.com.mr_wrong.Socket.TCPClientActivity"></activity>
+        <activity android:name="com.com.mr_wrong.HandlerThread.HandlerThreadActivity"></activity>
     </application>
 
 </manifest>

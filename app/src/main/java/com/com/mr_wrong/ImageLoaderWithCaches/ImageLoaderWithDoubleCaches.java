@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.support.v7.widget.RecyclerView;
 import android.util.LruCache;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -28,9 +29,10 @@ import java.util.Set;
 
 /**
  * Created by Mr_Wrong on 2015/5/3.
+ * 双缓存的
  */
 public class ImageLoaderWithDoubleCaches {
-    private Set<ASyncDownloadImage> mTasks;
+    private Set<ASyncDownloadImage> mTasks;//储存所以下载任务的set  用于取消任务
     private LruCache<String, Bitmap> mMemoryCaches;
     private DiskLruCache mDiskCaches;
     private ListView mListview;
@@ -40,6 +42,7 @@ public class ImageLoaderWithDoubleCaches {
         mTasks = new HashSet<ASyncDownloadImage>();
         int maxMemory = (int) Runtime.getRuntime().maxMemory();
         int cacheSize = maxMemory / 10;
+        //内存缓存
         mMemoryCaches = new LruCache<String, Bitmap>(cacheSize) {
             @Override
             protected int sizeOf(String key, Bitmap value) {
@@ -51,6 +54,7 @@ public class ImageLoaderWithDoubleCaches {
             cacheDir.mkdirs();
         }
         try {
+            //磁盘缓存
             mDiskCaches = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024);
 
         } catch (IOException e) {
@@ -58,6 +62,7 @@ public class ImageLoaderWithDoubleCaches {
         }
     }
 
+    //设置的图片都是从内存读取出来的
     public void showImage(String url, ImageView imageView) {
         Bitmap bitmap = getBitmapFromMemoryCaches(url);
         if (bitmap == null) {
@@ -70,7 +75,7 @@ public class ImageLoaderWithDoubleCaches {
     public Bitmap getBitmapFromMemoryCaches(String url) {
         return mMemoryCaches.get(url);
     }
-
+     //加载图片到内存
     public void addBitmapToMemoryCaches(String url, Bitmap bitmap) {
         if (getBitmapFromMemoryCaches(url) == null) {
             mMemoryCaches.put(url, bitmap);
@@ -141,6 +146,7 @@ public class ImageLoaderWithDoubleCaches {
         }
     }
 
+    //给URL进行md5 防止URL中某些字符出问题
     public String toMD5String(String key) {
         String cacheKey;
         try {
@@ -193,6 +199,7 @@ public class ImageLoaderWithDoubleCaches {
         return new File(cachePath + File.separator + cacheFileName);
     }
 
+    //任务队列 先去硬盘 没有再去网络  内存中有没有在showImage时候就判断了
     class ASyncDownloadImage extends AsyncTask<String, Void, Bitmap> {
         private String url;
 
@@ -219,7 +226,7 @@ public class ImageLoaderWithDoubleCaches {
                             editor.abort();
                         }
                     }
-                    snapshot = mDiskCaches.get(key);
+                    snapshot = mDiskCaches.get(key);//下载完成之后再去获取
                 }
                 if (snapshot != null) {//硬盘中有
                     fileInputStream = (FileInputStream) snapshot.getInputStream(0);

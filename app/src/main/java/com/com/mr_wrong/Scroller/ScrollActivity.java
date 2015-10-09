@@ -3,6 +3,11 @@ package com.com.mr_wrong.Scroller;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 
 import com.example.mr_wrong.androidstudioproject.R;
@@ -14,6 +19,7 @@ public class ScrollActivity extends Activity implements View.OnClickListener {
     private Button mScrollTo, mScrollBy, mSpingBack;
     private JellyTextView mJellyTextView;
     private static int distance = 30;
+    ScrollerLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +29,24 @@ public class ScrollActivity extends Activity implements View.OnClickListener {
         mScrollTo = (Button) findViewById(R.id.scrollTo);
         mScrollBy = (Button) findViewById(R.id.scrollBy);
         mSpingBack = (Button) findViewById(R.id.spingback);
-        mJellyTextView = (JellyTextView) findViewById(R.id.tv);
+        //mJellyTextView = (JellyTextView) findViewById(R.id.tv);
 
+        layout = (ScrollerLayout) findViewById(R.id.test_layout);
         mScrollTo.setOnClickListener(this);
         mScrollBy.setOnClickListener(this);
         mSpingBack.setOnClickListener(this);
+
+
+
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.scrollTo:
-                mJellyTextView.scrollTo(distance, 0);
+                layout.smoothScrollBy(-200, -200, 1500);
+               // mJellyTextView.scrollTo(distance, 0);
                 distance += 10;
                 break;
             case R.id.scrollBy:

@@ -1,37 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_bright">
+    android:background="@android:color/holo_blue_bright"
+    android:orientation="vertical">
 
     <Button
+        android:id="@+id/scrollTo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollTo"
         android:text="scrollTo" />
 
     <Button
+        android:id="@+id/scrollBy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollBy"
         android:text="scrollBy" />
 
     <Button
+        android:id="@+id/spingback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spingback"
         android:text="spingBack" />
 
-    <com.com.mr_wrong.Scroller.JellyTextView
-        android:textSize="16sp"
-        android:text="测试文本"
-        android:layout_marginTop="100dp"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:clickable="true"
-        android:background="@android:color/holo_green_dark"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:id="@+id/tv" />
+    <!--<com.com.mr_wrong.Scroller.JellyTextView-->
+        <!--android:id="@+id/tv"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginTop="100dp"-->
+        <!--android:background="@android:color/holo_green_dark"-->
+        <!--android:clickable="true"-->
+        <!--android:gravity="center"-->
+        <!--android:text="测试文本"-->
+        <!--android:textSize="16sp" />-->
+
+    <com.com.mr_wrong.Scroller.ScrollerLayout
+        android:layout_width="match_parent"
+        android:id="@+id/test_layout"
+        android:layout_height="500dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="scrollBy" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="spingBack" />
+    </com.com.mr_wrong.Scroller.ScrollerLayout>
 </LinearLayout>
