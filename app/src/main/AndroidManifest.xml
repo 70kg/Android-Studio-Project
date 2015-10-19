@@ -7,9 +7,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- 在SDCard中创建与删除文件权限 -->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <!-- 往SDCard写入数据权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -88,9 +88,12 @@
 
         <activity android:name="com.com.mr_wrong.ContentProvider.ProviderActivity"></activity>
 
-    <service android:name="com.com.mr_wrong.Socket.TCPServerService"></service>
-    <activity android:name="com.com.mr_wrong.Socket.TCPClientActivity"></activity>
+        <service android:name="com.com.mr_wrong.Socket.TCPServerService"></service>
+
+        <activity android:name="com.com.mr_wrong.Socket.TCPClientActivity"></activity>
         <activity android:name="com.com.mr_wrong.HandlerThread.HandlerThreadActivity"></activity>
+
+        <activity android:name="com.com.mr_wrong.CustomView.PageTurnView.PageTurnActivity"></activity>
     </application>
 
 </manifest>

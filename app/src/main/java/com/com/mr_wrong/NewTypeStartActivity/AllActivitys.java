@@ -29,6 +29,7 @@ import com.com.mr_wrong.AIDL.AIDLActivity;
 import com.com.mr_wrong.ContentProvider.ProviderActivity;
 import com.com.mr_wrong.Socket.TCPClientActivity;
 import com.com.mr_wrong.HandlerThread.HandlerThreadActivity;
+import com.com.mr_wrong.CustomView.PageTurnView.PageTurnActivity;
 /**
  * Created by Mr_Wrong on 15/7/5.
  */
@@ -60,7 +61,8 @@ public enum AllActivitys {
     AIDLActivity(AIDLActivity.class),
     ProviderActivity(ProviderActivity.class),
     TCPClientActivity(TCPClientActivity.class),
-    HandlerThreadActivity(HandlerThreadActivity.class);
+    HandlerThreadActivity(HandlerThreadActivity.class),
+    PageTurnActivity(PageTurnActivity.class);
 
 
     private Class activityClazz;
