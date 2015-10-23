@@ -3,11 +3,6 @@ package com.com.mr_wrong.Scroller;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
-import android.view.animation.ScaleAnimation;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 
 import com.example.mr_wrong.androidstudioproject.R;
