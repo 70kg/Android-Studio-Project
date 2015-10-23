@@ -56,5 +56,9 @@
 ---
 22.[各种自定义view，杂七杂八的](https://github.com/70kg/Android-Studio-Project/tree/master/app/src/main/java/com/com/mr_wrong/CustomView)
 ---
-
+23.PreferenceScreen
+---
+自定义PreferenceScreen  使用` android:widgetLayout`，`android:layout`等、
+![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/PreferenceScreen.png)
+---
 
