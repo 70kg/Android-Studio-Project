@@ -1,9 +1,11 @@
 package com.com.mr_wrong.Kotlin
 
 import android.app.Activity
+import android.app.Notification
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.widget.Toast
 import com.Utils.LogUtils
 import java.util.ArrayList
 
@@ -70,24 +72,31 @@ class MyView : View {
 
     fun printlist(args: ArrayList<String>) {
 
-        if (list ==null) {
+        if (list == null) {
+            //空指针安全  带？是可能为空 要先进行检查
             return
         }
         for (k in list) {
-
-        }
-        for (i in args) {
-
         }
     }
 
+    fun MutableList<Int>.swap(index1: Int, index2: Int) {
+        val tmp = this[index1] // 'this' corresponds to the list
+        this[index1] = this[index2]
+        this[index2] = tmp
+    }
     val view = MyView(getContext())
+
+
 
 
 }
 
-public object Preset {
+fun Activity.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT){ 
+    Toast.makeText(this, message, duration) 
+}
 
+public object Preset {
     public fun getTips(): ArrayList<String>? {
         var list = ArrayList<String>()
         list.add("111")
