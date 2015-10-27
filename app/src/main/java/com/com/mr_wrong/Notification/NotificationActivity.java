@@ -85,7 +85,6 @@ public class NotificationActivity extends Activity {
     }
 
 
-
     private void send(int id, Notification.Builder builder) {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(
