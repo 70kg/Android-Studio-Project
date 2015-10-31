@@ -92,9 +92,9 @@ class MyView : View {
 
 }
 
-fun Activity.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT){ 
-    Toast.makeText(this, message, duration) 
-}
+//fun Activity.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT){ 
+//    Toast.makeText(this, message, duration) 
+//}
 
 public object Preset {
     public fun getTips(): ArrayList<String>? {
