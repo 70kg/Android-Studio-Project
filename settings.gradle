@@ -1,1 +1,1 @@
-include ':app', ':meizi', 'BezierDemo', 'Toolbar', ':MaterialNavigationDrawerModule'
+include ':app', ':meizi', ':lib', 'BezierDemo', 'Toolbar', ':MaterialNavigationDrawerModule'
