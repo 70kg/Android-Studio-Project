@@ -29,11 +29,14 @@
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
 
     </style>
+
     <style name="AppTheme3" parent="AppBaseTheme"></style>
+
     <style name="TranslucentTheme" parent="AppBaseTheme">
         <item name="android:windowIsTranslucent">true</item>
         <!--<item name="android:theme">@style/Translucent</item>-->
     </style>
+
     <style
         name="Translucent" parent="android:style/Theme.Translucent">
         <item name="android:windowBackground">@drawable/translucent_background</item>
@@ -108,6 +111,7 @@
 
     <style name="Widget">
     </style>
+
     <style name="MyTheme" parent="AppBaseTheme">
         <item name="vpiTabPageIndicatorStyle">@style/MyWidget.TabPageIndicator</item>
         <item name="android:windowBackground">@drawable/init_pic</item>

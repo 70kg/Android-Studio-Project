@@ -17,6 +17,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+        }
+
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+        }
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -31,6 +38,7 @@ dependencies {
     compile 'com.android.support:palette-v7:21.0.+'
     compile 'org.jsoup:jsoup:1.8.2'
     compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.getbase:floatingactionbutton:1.10.1'
 
     compile files('libs/volley.jar')
     compile files('libs/gson-2.3.1.jar')

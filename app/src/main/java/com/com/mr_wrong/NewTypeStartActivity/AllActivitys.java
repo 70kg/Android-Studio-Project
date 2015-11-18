@@ -2,14 +2,23 @@ package com.com.mr_wrong.NewTypeStartActivity;
 
 import android.app.Activity;
 
-import com.com.mr_wrong.Jsoup.JsoupActivity;
+import com.com.mr_wrong.AIDL.AIDLActivity;
 import com.com.mr_wrong.Actionbar.ActionbarActivity;
 import com.com.mr_wrong.AsyncTask.AsyncTaskActivity;
 import com.com.mr_wrong.Bezier.BezierActivity;
+import com.com.mr_wrong.ContentProvider.ProviderActivity;
+import com.com.mr_wrong.CustomAnimAndCamera.CustomAnimActivity;
 import com.com.mr_wrong.CustomView.CustomViewActivity;
+import com.com.mr_wrong.CustomView.PageTurnView.PageTurnActivity;
 import com.com.mr_wrong.GaoFeng.GFMainActivity;
 import com.com.mr_wrong.HandleImageLoader.HandleImageLoader;
+import com.com.mr_wrong.HandlerThread.HandlerThreadActivity;
+import com.com.mr_wrong.Image.MyImage.MyImageActivity;
 import com.com.mr_wrong.ImageLoaderWithCaches.ImageLoaderActivity;
+import com.com.mr_wrong.Jsoup.JsoupActivity;
+import com.com.mr_wrong.KLog.KLogActivity;
+import com.com.mr_wrong.MySwipBacklayout.SimpleBookBackDemo;
+import com.com.mr_wrong.Notification.NotificationActivity;
 import com.com.mr_wrong.NumberProgressBar.NumberProgressBarActivity;
 import com.com.mr_wrong.PageIndicator.IndicatorMainActivity;
 import com.com.mr_wrong.Palette.PaletteActivity;
@@ -19,19 +28,12 @@ import com.com.mr_wrong.RecyclerView.MyRecycleViewActivity;
 import com.com.mr_wrong.RecyclerView.RecyclerViewActivity;
 import com.com.mr_wrong.RecyclerViewItemAnimator.ItemAnimatorActivity;
 import com.com.mr_wrong.Scroller.ScrollActivity;
+import com.com.mr_wrong.Settings.SettingsActivity;
 import com.com.mr_wrong.SlideView.SlideActivity;
+import com.com.mr_wrong.Socket.TCPClientActivity;
+import com.com.mr_wrong.ViewDraghelper.YoutuboActivity;
 import com.com.mr_wrong.VolleyAndGson.VolleyActivity;
 import com.com.mr_wrong.test.KotlinTest;
-import com.com.mr_wrong.ViewDraghelper.YoutuboActivity;
-import com.com.mr_wrong.CustomAnimAndCamera.CustomAnimActivity;
-import com.com.mr_wrong.Notification.NotificationActivity;
-import com.com.mr_wrong.AIDL.AIDLActivity;
-import com.com.mr_wrong.ContentProvider.ProviderActivity;
-import com.com.mr_wrong.Socket.TCPClientActivity;
-import com.com.mr_wrong.HandlerThread.HandlerThreadActivity;
-import com.com.mr_wrong.CustomView.PageTurnView.PageTurnActivity;
-
-import com.com.mr_wrong.Settings.SettingsActivity;
 /**
  * Created by Mr_Wrong on 15/7/5.
  */
@@ -65,8 +67,10 @@ public enum AllActivitys {
     TCPClientActivity(TCPClientActivity.class),
     HandlerThreadActivity(HandlerThreadActivity.class),
     PageTurnActivity(PageTurnActivity.class),
-    SettingsActivity(SettingsActivity.class);
-
+    SettingsActivity(SettingsActivity.class),
+    KLogActivity(KLogActivity.class),
+    MyImageActivity(MyImageActivity.class),
+    SimpleBookBackDemo(SimpleBookBackDemo.class);
 
     private Class activityClazz;
 

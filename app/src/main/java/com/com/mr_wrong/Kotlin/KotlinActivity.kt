@@ -14,7 +14,7 @@ public class KotlinActivity : Activity() {
         super.onCreate(savedInstanceState)
         ///toast("哈哈");//这个是拓展的方法  拓展是对类或者接口进行拓展  然后在使用这个类时或者类的内部进行使用
 
-        var activity = KotlinActivity()
+       // var activity = KotlinActivity()
        // activity.toast("yes")
 
     }

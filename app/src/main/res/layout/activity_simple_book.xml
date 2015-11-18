@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.com.mr_wrong.MySwipBacklayout.MySwipBacklayout
+    android:id="@+id/sb"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2c2c2c">
+
+        <ImageView
+            android:id="@+id/iv1"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/cjj"/>
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv1"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:text="BACK"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/iv2"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/tv"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/cjj"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/jj2">
+    </RelativeLayout>
+
+</com.com.mr_wrong.MySwipBacklayout.MySwipBacklayout>
