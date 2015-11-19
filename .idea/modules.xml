@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/Toolbar/Toolbar.iml" filepath="$PROJECT_DIR$/Toolbar/Toolbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shangfang/shangfang.iml" filepath="$PROJECT_DIR$/shangfang/shangfang.iml" />
     </modules>
   </component>
 </project>

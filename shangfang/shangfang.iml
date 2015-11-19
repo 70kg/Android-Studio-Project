@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="Android-Studio-Project" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+<module external.linked.project.id=":shangfang" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="Android-Studio-Project" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
-        <option name="GRADLE_PROJECT_PATH" value=":app" />
+        <option name="GRADLE_PROJECT_PATH" value=":shangfang" />
       </configuration>
     </facet>
     <facet type="android" name="Android">
@@ -35,14 +35,12 @@
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/kapt/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/generated/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/kapt/debugAndroidTest" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/generated/androidTest/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/res" type="java-resource" />
@@ -57,7 +55,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/assets" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/aidl" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/kotlin" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
@@ -89,21 +86,11 @@
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
-    <orderEntry type="jdk" jdkName="Android API 21 Platform" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="support-annotations-22.2.0" level="project" />
-    <orderEntry type="library" exported="" name="kotlin-runtime-0.12.1230" level="project" />
-    <orderEntry type="library" exported="" name="butterknife-6.1.0" level="project" />
-    <orderEntry type="library" exported="" name="gson-2.3.1" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-22.1.1" level="project" />
-    <orderEntry type="library" exported="" name="palette-v7-21.0.3" level="project" />
-    <orderEntry type="library" exported="" name="okhttp-2.4.0" level="project" />
-    <orderEntry type="library" exported="" name="volley" level="project" />
-    <orderEntry type="library" exported="" name="jsoup-1.8.2" level="project" />
     <orderEntry type="library" exported="" name="support-v4-22.1.1" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-22.1.1" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-22.0.0" level="project" />
-    <orderEntry type="library" exported="" name="floatingactionbutton-1.10.1" level="project" />
-    <orderEntry type="library" exported="" name="kotlin-stdlib-0.12.1230" level="project" />
-    <orderEntry type="library" exported="" name="okio-1.4.0" level="project" />
   </component>
 </module>

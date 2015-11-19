@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                tools:context=".MainActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/id_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_8b8b8b"/>
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            style="@style/bottom_home_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/ic_launcher"
+            android:gravity="center"
+            android:text="首页"/>
+
+        <RadioButton
+            android:id="@+id/rb_neighbor"
+            style="@style/bottom_home_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/ic_launcher"
+            android:gravity="center"
+            android:text="邻里"/>
+
+        <RadioButton
+            android:id="@+id/rb_mine"
+            style="@style/bottom_home_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/ic_launcher"
+            android:gravity="center"
+            android:text="我的"/>
+    </RadioGroup>
+
+</RelativeLayout>

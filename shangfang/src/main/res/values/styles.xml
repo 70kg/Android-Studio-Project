@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="bottom_home_style" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/image</item>
+        <item name="android:textColor">@drawable/text_color</item>
+    </style>
+</resources>
