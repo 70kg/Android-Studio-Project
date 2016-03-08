@@ -1,4 +1,8 @@
 # Android-Studio-Project
+
+---
+##因为搞得太乱太多的东西，每次编译要等半天，就新开了一个，这个就扔这吧[Demos](https://github.com/70kg/Demos)
+---
 这个项目包含平时练手的Demo,会持续更新
 
 1.使用AsyncTask异步加载网络图片
@@ -62,4 +66,3 @@
 ![](https://github.com/70kg/Android-Studio-Project/blob/master/Screenshots/PreferenceScreen.png)
 ---
 
-##因为搞得太乱太多的东西，每次编译要等半天，就新开了一个，这个就扔这吧[Demos](https://github.com/70kg/MyDemos)
